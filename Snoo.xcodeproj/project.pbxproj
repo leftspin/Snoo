@@ -1,0 +1,476 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2788652519411CBF007BBC37 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2788652419411CBF007BBC37 /* Foundation.framework */; };
+		2788652719411CBF007BBC37 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2788652619411CBF007BBC37 /* CoreGraphics.framework */; };
+		2788652919411CBF007BBC37 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2788652819411CBF007BBC37 /* UIKit.framework */; };
+		2788652B19411CBF007BBC37 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2788652A19411CBF007BBC37 /* CoreData.framework */; };
+		2788653119411CBF007BBC37 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2788652F19411CBF007BBC37 /* InfoPlist.strings */; };
+		2788653319411CBF007BBC37 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2788653219411CBF007BBC37 /* main.m */; };
+		2788653719411CBF007BBC37 /* SNOOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2788653619411CBF007BBC37 /* SNOOAppDelegate.m */; };
+		2788653A19411CBF007BBC37 /* Snoo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2788653819411CBF007BBC37 /* Snoo.xcdatamodeld */; };
+		2788653C19411CBF007BBC37 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2788653B19411CBF007BBC37 /* Images.xcassets */; };
+		2788654319411CBF007BBC37 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2788654219411CBF007BBC37 /* XCTest.framework */; };
+		2788654419411CBF007BBC37 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2788652419411CBF007BBC37 /* Foundation.framework */; };
+		2788654519411CBF007BBC37 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2788652819411CBF007BBC37 /* UIKit.framework */; };
+		2788654619411CBF007BBC37 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2788652A19411CBF007BBC37 /* CoreData.framework */; };
+		2788654E19411CBF007BBC37 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2788654C19411CBF007BBC37 /* InfoPlist.strings */; };
+		2788655019411CBF007BBC37 /* SnooTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2788654F19411CBF007BBC37 /* SnooTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2788654719411CBF007BBC37 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2788651919411CBF007BBC37 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2788652019411CBF007BBC37;
+			remoteInfo = Snoo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2788652119411CBF007BBC37 /* Snoo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snoo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2788652419411CBF007BBC37 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		2788652619411CBF007BBC37 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2788652819411CBF007BBC37 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2788652A19411CBF007BBC37 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		2788652E19411CBF007BBC37 /* Snoo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Snoo-Info.plist"; sourceTree = "<group>"; };
+		2788653019411CBF007BBC37 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2788653219411CBF007BBC37 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2788653419411CBF007BBC37 /* Snoo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Snoo-Prefix.pch"; sourceTree = "<group>"; };
+		2788653519411CBF007BBC37 /* SNOOAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SNOOAppDelegate.h; sourceTree = "<group>"; };
+		2788653619411CBF007BBC37 /* SNOOAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SNOOAppDelegate.m; sourceTree = "<group>"; };
+		2788653919411CBF007BBC37 /* Snoo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Snoo.xcdatamodel; sourceTree = "<group>"; };
+		2788653B19411CBF007BBC37 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		2788654119411CBF007BBC37 /* SnooTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnooTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2788654219411CBF007BBC37 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		2788654B19411CBF007BBC37 /* SnooTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SnooTests-Info.plist"; sourceTree = "<group>"; };
+		2788654D19411CBF007BBC37 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2788654F19411CBF007BBC37 /* SnooTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SnooTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2788651E19411CBF007BBC37 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2788652719411CBF007BBC37 /* CoreGraphics.framework in Frameworks */,
+				2788652B19411CBF007BBC37 /* CoreData.framework in Frameworks */,
+				2788652919411CBF007BBC37 /* UIKit.framework in Frameworks */,
+				2788652519411CBF007BBC37 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2788653E19411CBF007BBC37 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2788654319411CBF007BBC37 /* XCTest.framework in Frameworks */,
+				2788654619411CBF007BBC37 /* CoreData.framework in Frameworks */,
+				2788654519411CBF007BBC37 /* UIKit.framework in Frameworks */,
+				2788654419411CBF007BBC37 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2788651819411CBF007BBC37 = {
+			isa = PBXGroup;
+			children = (
+				2788652C19411CBF007BBC37 /* Snoo */,
+				2788654919411CBF007BBC37 /* SnooTests */,
+				2788652319411CBF007BBC37 /* Frameworks */,
+				2788652219411CBF007BBC37 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2788652219411CBF007BBC37 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2788652119411CBF007BBC37 /* Snoo.app */,
+				2788654119411CBF007BBC37 /* SnooTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2788652319411CBF007BBC37 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2788652419411CBF007BBC37 /* Foundation.framework */,
+				2788652619411CBF007BBC37 /* CoreGraphics.framework */,
+				2788652819411CBF007BBC37 /* UIKit.framework */,
+				2788652A19411CBF007BBC37 /* CoreData.framework */,
+				2788654219411CBF007BBC37 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2788652C19411CBF007BBC37 /* Snoo */ = {
+			isa = PBXGroup;
+			children = (
+				2788653519411CBF007BBC37 /* SNOOAppDelegate.h */,
+				2788653619411CBF007BBC37 /* SNOOAppDelegate.m */,
+				2788653B19411CBF007BBC37 /* Images.xcassets */,
+				2788653819411CBF007BBC37 /* Snoo.xcdatamodeld */,
+				2788652D19411CBF007BBC37 /* Supporting Files */,
+			);
+			path = Snoo;
+			sourceTree = "<group>";
+		};
+		2788652D19411CBF007BBC37 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2788652E19411CBF007BBC37 /* Snoo-Info.plist */,
+				2788652F19411CBF007BBC37 /* InfoPlist.strings */,
+				2788653219411CBF007BBC37 /* main.m */,
+				2788653419411CBF007BBC37 /* Snoo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2788654919411CBF007BBC37 /* SnooTests */ = {
+			isa = PBXGroup;
+			children = (
+				2788654F19411CBF007BBC37 /* SnooTests.m */,
+				2788654A19411CBF007BBC37 /* Supporting Files */,
+			);
+			path = SnooTests;
+			sourceTree = "<group>";
+		};
+		2788654A19411CBF007BBC37 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2788654B19411CBF007BBC37 /* SnooTests-Info.plist */,
+				2788654C19411CBF007BBC37 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2788652019411CBF007BBC37 /* Snoo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2788655319411CBF007BBC37 /* Build configuration list for PBXNativeTarget "Snoo" */;
+			buildPhases = (
+				2788651D19411CBF007BBC37 /* Sources */,
+				2788651E19411CBF007BBC37 /* Frameworks */,
+				2788651F19411CBF007BBC37 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Snoo;
+			productName = Snoo;
+			productReference = 2788652119411CBF007BBC37 /* Snoo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2788654019411CBF007BBC37 /* SnooTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2788655619411CBF007BBC37 /* Build configuration list for PBXNativeTarget "SnooTests" */;
+			buildPhases = (
+				2788653D19411CBF007BBC37 /* Sources */,
+				2788653E19411CBF007BBC37 /* Frameworks */,
+				2788653F19411CBF007BBC37 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2788654819411CBF007BBC37 /* PBXTargetDependency */,
+			);
+			name = SnooTests;
+			productName = SnooTests;
+			productReference = 2788654119411CBF007BBC37 /* SnooTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2788651919411CBF007BBC37 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = SNOO;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = ivm;
+				TargetAttributes = {
+					2788654019411CBF007BBC37 = {
+						TestTargetID = 2788652019411CBF007BBC37;
+					};
+				};
+			};
+			buildConfigurationList = 2788651C19411CBF007BBC37 /* Build configuration list for PBXProject "Snoo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 2788651819411CBF007BBC37;
+			productRefGroup = 2788652219411CBF007BBC37 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2788652019411CBF007BBC37 /* Snoo */,
+				2788654019411CBF007BBC37 /* SnooTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2788651F19411CBF007BBC37 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2788653119411CBF007BBC37 /* InfoPlist.strings in Resources */,
+				2788653C19411CBF007BBC37 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2788653F19411CBF007BBC37 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2788654E19411CBF007BBC37 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2788651D19411CBF007BBC37 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2788653319411CBF007BBC37 /* main.m in Sources */,
+				2788653A19411CBF007BBC37 /* Snoo.xcdatamodeld in Sources */,
+				2788653719411CBF007BBC37 /* SNOOAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2788653D19411CBF007BBC37 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2788655019411CBF007BBC37 /* SnooTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2788654819411CBF007BBC37 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2788652019411CBF007BBC37 /* Snoo */;
+			targetProxy = 2788654719411CBF007BBC37 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2788652F19411CBF007BBC37 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2788653019411CBF007BBC37 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2788654C19411CBF007BBC37 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2788654D19411CBF007BBC37 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2788655119411CBF007BBC37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		2788655219411CBF007BBC37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2788655419411CBF007BBC37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Snoo/Snoo-Prefix.pch";
+				INFOPLIST_FILE = "Snoo/Snoo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		2788655519411CBF007BBC37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Snoo/Snoo-Prefix.pch";
+				INFOPLIST_FILE = "Snoo/Snoo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		2788655719411CBF007BBC37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Snoo.app/Snoo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Snoo/Snoo-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "SnooTests/SnooTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		2788655819411CBF007BBC37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Snoo.app/Snoo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Snoo/Snoo-Prefix.pch";
+				INFOPLIST_FILE = "SnooTests/SnooTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2788651C19411CBF007BBC37 /* Build configuration list for PBXProject "Snoo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2788655119411CBF007BBC37 /* Debug */,
+				2788655219411CBF007BBC37 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2788655319411CBF007BBC37 /* Build configuration list for PBXNativeTarget "Snoo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2788655419411CBF007BBC37 /* Debug */,
+				2788655519411CBF007BBC37 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2788655619411CBF007BBC37 /* Build configuration list for PBXNativeTarget "SnooTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2788655719411CBF007BBC37 /* Debug */,
+				2788655819411CBF007BBC37 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2788653819411CBF007BBC37 /* Snoo.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2788653919411CBF007BBC37 /* Snoo.xcdatamodel */,
+			);
+			currentVersion = 2788653919411CBF007BBC37 /* Snoo.xcdatamodel */;
+			path = Snoo.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 2788651919411CBF007BBC37 /* Project object */;
+}
