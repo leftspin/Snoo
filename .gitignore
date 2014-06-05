@@ -1,0 +1,23 @@
+.DS_Store?
+.DS_Store
+*.swp
+*~.nib
+out/
+DerivedData/
+3rd Party/
+3rd\ Party
+build/
+xcodebuild_output
+.xcodeproj/
+!*.xcodeproj/project.pbxproj
+
+*.mode1v3
+*.mode2v3
+
+xcuserdata
+
+Pods/
+Podfile.lock
+
+*.xccheckout
+
