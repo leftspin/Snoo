@@ -22,6 +22,18 @@
 		2788654619411CBF007BBC37 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2788652A19411CBF007BBC37 /* CoreData.framework */; };
 		2788654E19411CBF007BBC37 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2788654C19411CBF007BBC37 /* InfoPlist.strings */; };
 		2788655019411CBF007BBC37 /* SnooTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2788654F19411CBF007BBC37 /* SnooTests.m */; };
+		2788655E19412397007BBC37 /* SNOORedditService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2788655D19412397007BBC37 /* SNOORedditService.m */; };
+		27886565194124D4007BBC37 /* UIResponder+PerformSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 27886564194124D4007BBC37 /* UIResponder+PerformSelector.m */; };
+		2788656819412A86007BBC37 /* SNOORedditCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 2788656719412A86007BBC37 /* SNOORedditCommand.m */; };
+		2788656B19412C02007BBC37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2788656A19412C02007BBC37 /* Main.storyboard */; };
+		27886570194132C3007BBC37 /* SNOORedditCommandFetchFrontPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2788656F194132C3007BBC37 /* SNOORedditCommandFetchFrontPage.m */; };
+		2788657419416BED007BBC37 /* SNOOPagedAccessByURLParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2788657319416BED007BBC37 /* SNOOPagedAccessByURLParameter.m */; };
+		27886577194186A5007BBC37 /* NSURL+Queries.m in Sources */ = {isa = PBXBuildFile; fileRef = 27886576194186A5007BBC37 /* NSURL+Queries.m */; };
+		2788657B19418B94007BBC37 /* SNOOFrontPageListingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2788657A19418B94007BBC37 /* SNOOFrontPageListingController.m */; };
+		27D2632F1942493C00DD0ADC /* NSDictionary+Recognize.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D2632E1942493C00DD0ADC /* NSDictionary+Recognize.m */; };
+		27D2633319424F0700DD0ADC /* SNOORedditConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D2633219424F0700DD0ADC /* SNOORedditConstants.m */; };
+		27D26336194255E700DD0ADC /* NSDictionary+Extract.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D26335194255E700DD0ADC /* NSDictionary+Extract.m */; };
+		45A16C8274414D0D8191E0E2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0DA92FB6ACD4B889EBA59C7 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +65,31 @@
 		2788654B19411CBF007BBC37 /* SnooTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SnooTests-Info.plist"; sourceTree = "<group>"; };
 		2788654D19411CBF007BBC37 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2788654F19411CBF007BBC37 /* SnooTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SnooTests.m; sourceTree = "<group>"; };
+		2788655C19412397007BBC37 /* SNOORedditService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNOORedditService.h; sourceTree = "<group>"; };
+		2788655D19412397007BBC37 /* SNOORedditService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNOORedditService.m; sourceTree = "<group>"; };
+		27886563194124D4007BBC37 /* UIResponder+PerformSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIResponder+PerformSelector.h"; sourceTree = "<group>"; };
+		27886564194124D4007BBC37 /* UIResponder+PerformSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+PerformSelector.m"; sourceTree = "<group>"; };
+		2788656619412A86007BBC37 /* SNOORedditCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNOORedditCommand.h; sourceTree = "<group>"; };
+		2788656719412A86007BBC37 /* SNOORedditCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNOORedditCommand.m; sourceTree = "<group>"; };
+		2788656A19412C02007BBC37 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		2788656D19412FCA007BBC37 /* SNOOURLRepresentable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SNOOURLRepresentable.h; sourceTree = "<group>"; };
+		2788656E194132C3007BBC37 /* SNOORedditCommandFetchFrontPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNOORedditCommandFetchFrontPage.h; sourceTree = "<group>"; };
+		2788656F194132C3007BBC37 /* SNOORedditCommandFetchFrontPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNOORedditCommandFetchFrontPage.m; sourceTree = "<group>"; };
+		27886571194153F1007BBC37 /* SNOOPagedAccess.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SNOOPagedAccess.h; sourceTree = "<group>"; };
+		2788657219416BED007BBC37 /* SNOOPagedAccessByURLParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNOOPagedAccessByURLParameter.h; sourceTree = "<group>"; };
+		2788657319416BED007BBC37 /* SNOOPagedAccessByURLParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNOOPagedAccessByURLParameter.m; sourceTree = "<group>"; };
+		27886575194186A5007BBC37 /* NSURL+Queries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+Queries.h"; sourceTree = "<group>"; };
+		27886576194186A5007BBC37 /* NSURL+Queries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+Queries.m"; sourceTree = "<group>"; };
+		2788657919418B94007BBC37 /* SNOOFrontPageListingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNOOFrontPageListingController.h; sourceTree = "<group>"; };
+		2788657A19418B94007BBC37 /* SNOOFrontPageListingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNOOFrontPageListingController.m; sourceTree = "<group>"; };
+		27D2632D1942493C00DD0ADC /* NSDictionary+Recognize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Recognize.h"; sourceTree = "<group>"; };
+		27D2632E1942493C00DD0ADC /* NSDictionary+Recognize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Recognize.m"; sourceTree = "<group>"; };
+		27D2633119424F0700DD0ADC /* SNOORedditConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNOORedditConstants.h; sourceTree = "<group>"; };
+		27D2633219424F0700DD0ADC /* SNOORedditConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNOORedditConstants.m; sourceTree = "<group>"; };
+		27D26334194255E700DD0ADC /* NSDictionary+Extract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Extract.h"; sourceTree = "<group>"; };
+		27D26335194255E700DD0ADC /* NSDictionary+Extract.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Extract.m"; sourceTree = "<group>"; };
+		C0DA92FB6ACD4B889EBA59C7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF400A1765724841ADF64C21 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +101,7 @@
 				2788652B19411CBF007BBC37 /* CoreData.framework in Frameworks */,
 				2788652919411CBF007BBC37 /* UIKit.framework in Frameworks */,
 				2788652519411CBF007BBC37 /* Foundation.framework in Frameworks */,
+				45A16C8274414D0D8191E0E2 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +126,7 @@
 				2788654919411CBF007BBC37 /* SnooTests */,
 				2788652319411CBF007BBC37 /* Frameworks */,
 				2788652219411CBF007BBC37 /* Products */,
+				DF400A1765724841ADF64C21 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,6 +147,7 @@
 				2788652819411CBF007BBC37 /* UIKit.framework */,
 				2788652A19411CBF007BBC37 /* CoreData.framework */,
 				2788654219411CBF007BBC37 /* XCTest.framework */,
+				C0DA92FB6ACD4B889EBA59C7 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -115,24 +155,11 @@
 		2788652C19411CBF007BBC37 /* Snoo */ = {
 			isa = PBXGroup;
 			children = (
-				2788653519411CBF007BBC37 /* SNOOAppDelegate.h */,
-				2788653619411CBF007BBC37 /* SNOOAppDelegate.m */,
-				2788653B19411CBF007BBC37 /* Images.xcassets */,
-				2788653819411CBF007BBC37 /* Snoo.xcdatamodeld */,
-				2788652D19411CBF007BBC37 /* Supporting Files */,
+				2788657819418B70007BBC37 /* Front Page Listing */,
+				2788655B19412381007BBC37 /* Reddit Service */,
+				2788655919412316007BBC37 /* Application */,
 			);
 			path = Snoo;
-			sourceTree = "<group>";
-		};
-		2788652D19411CBF007BBC37 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				2788652E19411CBF007BBC37 /* Snoo-Info.plist */,
-				2788652F19411CBF007BBC37 /* InfoPlist.strings */,
-				2788653219411CBF007BBC37 /* main.m */,
-				2788653419411CBF007BBC37 /* Snoo-Prefix.pch */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		2788654919411CBF007BBC37 /* SnooTests */ = {
@@ -153,6 +180,106 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		2788655919412316007BBC37 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				2788656C19412F7B007BBC37 /* Service */,
+				2788655A1941232D007BBC37 /* Model */,
+				2788656919412BBE007BBC37 /* View */,
+				2788656219412443007BBC37 /* Categories */,
+				2788652E19411CBF007BBC37 /* Snoo-Info.plist */,
+				2788652F19411CBF007BBC37 /* InfoPlist.strings */,
+				2788653219411CBF007BBC37 /* main.m */,
+				2788653419411CBF007BBC37 /* Snoo-Prefix.pch */,
+				2788653519411CBF007BBC37 /* SNOOAppDelegate.h */,
+				2788653619411CBF007BBC37 /* SNOOAppDelegate.m */,
+				2788653B19411CBF007BBC37 /* Images.xcassets */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
+		2788655A1941232D007BBC37 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2788653819411CBF007BBC37 /* Snoo.xcdatamodeld */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		2788655B19412381007BBC37 /* Reddit Service */ = {
+			isa = PBXGroup;
+			children = (
+				2788655C19412397007BBC37 /* SNOORedditService.h */,
+				2788655D19412397007BBC37 /* SNOORedditService.m */,
+				27D2633119424F0700DD0ADC /* SNOORedditConstants.h */,
+				27D2633219424F0700DD0ADC /* SNOORedditConstants.m */,
+				27D2632D1942493C00DD0ADC /* NSDictionary+Recognize.h */,
+				27D2632E1942493C00DD0ADC /* NSDictionary+Recognize.m */,
+				27D26334194255E700DD0ADC /* NSDictionary+Extract.h */,
+				27D26335194255E700DD0ADC /* NSDictionary+Extract.m */,
+				27F30E4B1942443600C9FE59 /* Converters */,
+				27F30E49194242E000C9FE59 /* Commands */,
+			);
+			name = "Reddit Service";
+			sourceTree = "<group>";
+		};
+		2788656219412443007BBC37 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				27886563194124D4007BBC37 /* UIResponder+PerformSelector.h */,
+				27886564194124D4007BBC37 /* UIResponder+PerformSelector.m */,
+				27886575194186A5007BBC37 /* NSURL+Queries.h */,
+				27886576194186A5007BBC37 /* NSURL+Queries.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		2788656919412BBE007BBC37 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2788656A19412C02007BBC37 /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		2788656C19412F7B007BBC37 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				2788656D19412FCA007BBC37 /* SNOOURLRepresentable.h */,
+				27886571194153F1007BBC37 /* SNOOPagedAccess.h */,
+				2788657219416BED007BBC37 /* SNOOPagedAccessByURLParameter.h */,
+				2788657319416BED007BBC37 /* SNOOPagedAccessByURLParameter.m */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
+		2788657819418B70007BBC37 /* Front Page Listing */ = {
+			isa = PBXGroup;
+			children = (
+				2788657919418B94007BBC37 /* SNOOFrontPageListingController.h */,
+				2788657A19418B94007BBC37 /* SNOOFrontPageListingController.m */,
+			);
+			name = "Front Page Listing";
+			sourceTree = "<group>";
+		};
+		27F30E49194242E000C9FE59 /* Commands */ = {
+			isa = PBXGroup;
+			children = (
+				2788656619412A86007BBC37 /* SNOORedditCommand.h */,
+				2788656719412A86007BBC37 /* SNOORedditCommand.m */,
+				2788656E194132C3007BBC37 /* SNOORedditCommandFetchFrontPage.h */,
+				2788656F194132C3007BBC37 /* SNOORedditCommandFetchFrontPage.m */,
+			);
+			name = Commands;
+			sourceTree = "<group>";
+		};
+		27F30E4B1942443600C9FE59 /* Converters */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Converters;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -160,9 +287,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2788655319411CBF007BBC37 /* Build configuration list for PBXNativeTarget "Snoo" */;
 			buildPhases = (
+				B947BEF431204A5B9F19D01B /* Check Pods Manifest.lock */,
 				2788651D19411CBF007BBC37 /* Sources */,
 				2788651E19411CBF007BBC37 /* Frameworks */,
 				2788651F19411CBF007BBC37 /* Resources */,
+				575AAF3CAF0B46E9B25C8E5B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -229,6 +358,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2788656B19412C02007BBC37 /* Main.storyboard in Resources */,
 				2788653119411CBF007BBC37 /* InfoPlist.strings in Resources */,
 				2788653C19411CBF007BBC37 /* Images.xcassets in Resources */,
 			);
@@ -244,14 +374,57 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		575AAF3CAF0B46E9B25C8E5B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B947BEF431204A5B9F19D01B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2788651D19411CBF007BBC37 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27D26336194255E700DD0ADC /* NSDictionary+Extract.m in Sources */,
 				2788653319411CBF007BBC37 /* main.m in Sources */,
 				2788653A19411CBF007BBC37 /* Snoo.xcdatamodeld in Sources */,
+				2788657B19418B94007BBC37 /* SNOOFrontPageListingController.m in Sources */,
+				27886565194124D4007BBC37 /* UIResponder+PerformSelector.m in Sources */,
+				2788657419416BED007BBC37 /* SNOOPagedAccessByURLParameter.m in Sources */,
+				27D2632F1942493C00DD0ADC /* NSDictionary+Recognize.m in Sources */,
 				2788653719411CBF007BBC37 /* SNOOAppDelegate.m in Sources */,
+				2788656819412A86007BBC37 /* SNOORedditCommand.m in Sources */,
+				27D2633319424F0700DD0ADC /* SNOORedditConstants.m in Sources */,
+				2788655E19412397007BBC37 /* SNOORedditService.m in Sources */,
+				27886570194132C3007BBC37 /* SNOORedditCommandFetchFrontPage.m in Sources */,
+				27886577194186A5007BBC37 /* NSURL+Queries.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,6 +538,7 @@
 		};
 		2788655419411CBF007BBC37 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF400A1765724841ADF64C21 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -378,6 +552,7 @@
 		};
 		2788655519411CBF007BBC37 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF400A1765724841ADF64C21 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -448,6 +623,7 @@
 				2788655519411CBF007BBC37 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2788655619411CBF007BBC37 /* Build configuration list for PBXNativeTarget "SnooTests" */ = {
 			isa = XCConfigurationList;
@@ -456,6 +632,7 @@
 				2788655819411CBF007BBC37 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

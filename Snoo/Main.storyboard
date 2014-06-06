@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="14A238x" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Bp0-iI-IXe">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <scenes>
+        <!--Front Page Listing Controller - Snoo-->
+        <scene sceneID="Vmh-RO-T7u">
+            <objects>
+                <tableViewController id="eUd-Sf-iIr" customClass="SNOOFrontPageListingController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="fgH-W5-23s">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="cFb-lF-hYD">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cFb-lF-hYD" id="0bP-Et-NeH">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="eUd-Sf-iIr" id="fBt-FW-PMP"/>
+                            <outlet property="delegate" destination="eUd-Sf-iIr" id="Yzg-lk-hxi"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Snoo" id="Hs2-S2-SJ8">
+                        <barButtonItem key="leftBarButtonItem" systemItem="fastForward" id="zL0-YC-4ZQ">
+                            <connections>
+                                <action selector="nextPageTapped:" destination="eUd-Sf-iIr" id="kCh-4h-amN"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="oTB-9Q-JKL">
+                            <connections>
+                                <action selector="refreshTapped:" destination="eUd-Sf-iIr" id="Ssv-QQ-JoU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="fetchNextPageButton" destination="zL0-YC-4ZQ" id="y8r-aZ-L3b"/>
+                        <outlet property="refreshFromTopButton" destination="oTB-9Q-JKL" id="hS2-Qx-7KP"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fxr-4E-xLS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="820" y="245"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="mYU-tS-Xv7">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="Bp0-iI-IXe" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gvj-hS-afD">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="eUd-Sf-iIr" kind="relationship" relationship="rootViewController" id="vYT-Bj-oG2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IiY-jO-drW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="286" y="245"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

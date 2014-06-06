@@ -7,6 +7,11 @@
 //
 
 #import "SNOOAppDelegate.h"
+#import "SNOORedditService.h"
+
+@interface SNOOAppDelegate ()
+@property( nonatomic, strong ) SNOORedditService *redditService ;
+@end
 
 @implementation SNOOAppDelegate
 
@@ -15,13 +20,12 @@
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
+	{
+	// Set up the Reddit service
+	self.redditService = [SNOORedditService new] ;
+	
     return YES;
-}
+	}
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
@@ -145,5 +149,12 @@
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
+
+#pragma mark - UIResponder
+
+- (UIResponder *) nextResponder
+	{
+	return self.redditService ;
+	}
 
 @end
