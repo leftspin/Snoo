@@ -20,12 +20,32 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *fetchNextPageButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *refreshFromTopButton;
 @property (nonatomic, strong, readonly) NSFetchedResultsController *fetchedResultsController ;
+
+@property( nonatomic, assign ) BOOL reloadEnabled ;
+@property( nonatomic, assign ) BOOL loadMoreEnabled ;
 @end
 
 @implementation SNOOFrontPageListingController
 	{
 	NSFetchedResultsController *_fetchedResultsController ;
 	}
+
+#pragma mark - Properties
+
+- (void) setReloadEnabled:(BOOL)reloadEnabled
+	{
+	_reloadEnabled = reloadEnabled ;
+	
+	self.refreshFromTopButton.enabled = reloadEnabled ;
+	}
+
+- (void) setLoadMoreEnabled:(BOOL)loadMoreEnabled
+	{
+	_loadMoreEnabled = loadMoreEnabled ;
+	
+	[self showLoadMoreIndicator:loadMoreEnabled] ;
+	}
+
 
 #pragma mark - View lifecycle
 
@@ -36,16 +56,17 @@
 	// Register cell classes
 	[self.tableView registerNib:[UINib nibWithNibName:@"SNOOPostTableViewCell" bundle:nil] forCellReuseIdentifier:SNOO_POST_TABLEVIEW_CELL_ID] ;
 	
-	__weak SNOOFrontPageListingController *weakSelf = self ;
+	self.reloadEnabled = YES ;
 	
 	// Create a fetch command
+	__weak SNOOFrontPageListingController *weakSelf = self ;
 	self.fetchCommand = [SNOORedditCommandFetchFrontPage new] ;
 	self.fetchCommand.finishedBlock = ^(NSError *error)
 		{
 		__strong SNOOFrontPageListingController *strongSelf = weakSelf ;
 
-		strongSelf.fetchNextPageButton.enabled = strongSelf.fetchCommand.pager.hasNextPage ;
-		strongSelf.refreshFromTopButton.enabled = YES ;
+		strongSelf.loadMoreEnabled = strongSelf.fetchCommand.pager.hasNextPage ;
+		strongSelf.reloadEnabled = YES ;
 
 		if( error )
 			NSLog(@"%@", error.localizedDescription) ;
@@ -62,7 +83,7 @@
 	NSData *encodedPaging = [[NSUserDefaults standardUserDefaults] dataForKey:SNOO_UI_CONTEXT_FRONT_PAGE_PAGER_DEFAULTS_KEY] ;
 	id <SNOOPagedAccess> pager = [NSKeyedUnarchiver unarchiveObjectWithData:encodedPaging] ;
 	self.fetchCommand.pager = pager ;
-	self.fetchNextPageButton.enabled = self.fetchCommand.pager.hasNextPage ;
+	self.loadMoreEnabled = self.fetchCommand.pager.hasNextPage ;
 	}
 
 #pragma mark - Display
@@ -72,6 +93,11 @@
     SNOOPost *post = [self.fetchedResultsController objectAtIndexPath:indexPath] ;
 	cell.textLabel.text = post.title ;
 	cell.detailTextLabel.text = post.service_order.stringValue ;
+	}
+
+- (void) showLoadMoreIndicator: (BOOL) show // Shouldn't normally call this manually, instead set self.loadMoreEnabled
+	{
+	self.fetchNextPageButton.enabled = show ;
 	}
 
 #pragma mark - UITableView datasource and delegate
@@ -135,15 +161,15 @@
 
 - (IBAction)refreshTapped:(UIBarButtonItem *)sender
 	{
-	self.fetchNextPageButton.enabled = NO ;
-	self.refreshFromTopButton.enabled = NO ;
+	self.reloadEnabled = NO ;
+	self.loadMoreEnabled = NO ;
 	[self.fetchCommand performFromFirstPage] ;
 	}
 
 - (IBAction)nextPageTapped:(UIBarButtonItem *)sender
 	{
-	self.fetchNextPageButton.enabled = NO ;
-	self.refreshFromTopButton.enabled = NO ;
+	self.reloadEnabled = NO ;
+	self.loadMoreEnabled = NO ;
 	[self.fetchCommand perform] ;
 	}
 
@@ -212,6 +238,5 @@
 	{
     [self.tableView endUpdates];
 	}
-
 
 @end
