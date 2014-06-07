@@ -12,7 +12,6 @@
 #import "NSDictionary+Recognize.h"
 #import "SNOOPost.h"
 #import "NSDate+Conversions.h"
-#import "SNOOCounters.h"
 
 @implementation NSDictionary (Ingest)
 

@@ -11,7 +11,6 @@
 #import "NSManagedObjectContext+Convenience.h"
 #import "SNOOPost.h"
 #import "NSDictionary+Ingest.h"
-#import "SNOOCounters.h"
 
 @implementation NSArray (Ingest)
 
@@ -27,6 +26,19 @@
 	[moc performBlock:^
 		{
 		
+		
+		// As items are ingested, they are assigned a increasing value for service_order so that they can be sorted later. The current index is the number of objects with uiContext
+		// http://stackoverflow.com/questions/1134289/cocoa-core-data-efficient-way-to-count-entities
+		NSUInteger startingIndex = 0 ;
+		NSFetchRequest *request = [[NSFetchRequest alloc] init] ;
+		request.predicate = [NSPredicate predicateWithFormat:@"ui_context == %@" , uiContext] ;
+		[request setEntity:[NSEntityDescription entityForName:SNOO_POST_ENTITY_NAME inManagedObjectContext:moc]] ;
+		request.includesSubentities = NO ;
+		NSError *countError = nil ;
+		NSUInteger count = [moc countForFetchRequest:request error:&countError] ;
+		if( count == NSNotFound )
+			count = 0 ;
+		startingIndex = count ;
 		
 		// Ingest each object
 		[self enumerateObjectsUsingBlock:^(NSDictionary *listingObject, NSUInteger idx, BOOL *stop)
@@ -48,7 +60,7 @@
 					NSError *mapError = nil ;
 					
 					// Give this post a service_order so that it can be sorted later by the order fetched from the server
-					post.service_order = @([[SNOOCounters sharedCounters] nextValueForCounterWithName:uiContext]) ;
+					post.service_order = @(startingIndex + idx) ;
 					
 					// Give this post a ui_context so that different screens only pull the proper objects
 					post.ui_context = uiContext ;

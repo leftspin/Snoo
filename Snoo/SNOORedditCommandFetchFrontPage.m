@@ -11,7 +11,6 @@
 #import "NSDictionary+Extract.h"
 #import "NSDictionary+Ingest.h"
 #import "SNOOFrontPageListingController.h"
-#import "SNOOCounters.h"
 #import "SNOOPost.h"
 #import "NSManagedObjectContext+Convenience.h"
 
@@ -57,9 +56,6 @@
 		
 		[self.childMOC saveRecursively] ;
 		}] ;
-	
-	// Reset the counter for this UI context
-	[[SNOOCounters sharedCounters] resetCounterWithName:SNOO_UI_CONTEXT_FRONT_PAGE] ;
 	
 	// Do eeeet
 	[self perform] ;
