@@ -14,4 +14,9 @@
 	#import <UIKit/UIKit.h>
 	#import <Foundation/Foundation.h>
 	#import <CoreData/CoreData.h>
+
+	#import "SNOOAppDelegate.h"
+
+#define SAFESTRING(x) ((x && ((NSNull *)x)!=[NSNull null] && [x isKindOfClass:[NSString class]]) ? (NSString*)x : @"")
+
 #endif

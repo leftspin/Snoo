@@ -9,7 +9,7 @@
 
 @import Foundation ;
 
-@protocol SNOOPagedAccess <NSObject>
+@protocol SNOOPagedAccess <NSObject, NSCoding>
 
 // Is YES if there is another page, NO otherwise
 @property( nonatomic, readonly ) BOOL hasNextPage ;

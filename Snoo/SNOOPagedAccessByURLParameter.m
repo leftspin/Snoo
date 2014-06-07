@@ -28,6 +28,16 @@
 	return newInstance ;
 	}
 
+- (instancetype) initWithCoder:(NSCoder *)aDecoder
+	{
+	self = [super init] ;
+	if( self )
+		{
+		self.nextPageToken = [aDecoder decodeObjectForKey:@"nextPageToken"] ;
+		}
+	return self ;
+	}
+
 #pragma mark - SNOOPagedAccess
 
 - (NSURLRequest *) pagedURLRequestFromEndpointURLRequest: (NSURLRequest *) endpointURLRequest
@@ -39,6 +49,13 @@
 	modifiedRequest.URL = [endpointURLRequest.URL URLByAppendingQueryString:[NSString stringWithFormat:@"after=%@", self.nextPageToken]] ;
 	
 	return modifiedRequest ;
+	}
+
+#pragma mark - NSCoding
+
+- (void) encodeWithCoder:(NSCoder *)aCoder
+	{
+	[aCoder encodeObject:self.nextPageToken forKey:@"nextPageToken"] ;
 	}
 
 @end

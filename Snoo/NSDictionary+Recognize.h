@@ -14,4 +14,8 @@
 // Returns one of xeRedditStructureType if recognized, or xkRedditStructureTypeUnknown
 - (xeRedditStructureType) structureType ;
 
+// Returns YES if the receiver represents a Reddit thing that can be listed as a post in the UI
+#warning test
+- (BOOL) isPost ;
+
 @end

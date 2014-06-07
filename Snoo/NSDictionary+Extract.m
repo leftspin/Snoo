@@ -16,7 +16,8 @@
 - (NSArray *) listingChildrenWithError: (NSError **) pointerToError
 	{
 	NSParameterAssert(pointerToError) ;
-	
+	*pointerToError = nil ; // Safety
+
 	// If this isn't a listing, we don't know WHAT it is, make like a bakery truck and haul buns
 	if( [self structureType] != xkRedditStructureTypeListing )
 		{
@@ -42,7 +43,8 @@
 - (NSString *) listingNextPageTokenWithError: (NSError **) pointerToError
 	{
 	NSParameterAssert(pointerToError) ;
-	
+	*pointerToError = nil ; // Safety
+
 	// If this isn't a listing, we don't know WHAT it is, make like a tree and leave
 	if( [self structureType] != xkRedditStructureTypeListing )
 		{

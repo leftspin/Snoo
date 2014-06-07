@@ -22,9 +22,9 @@ typedef enum : NSUInteger
 
 @interface SNOORedditCommandFetchFrontPage : SNOORedditCommand <SNOOURLRepresentable>
 
-@property( nonatomic, readonly ) id <SNOOPagedAccess> pager ;
+@property( nonatomic, strong ) id <SNOOPagedAccess> pager ;
 
-// Each perform of the receiver will fetch subsequent pages. Calling this method on the receiver will reset it so it fetches from the top. Calling this will also invalidate
+// Each perform of the receiver will fetch subsequent pages. Calling this method on the receiver will reset it so it fetches from the top.
 - (void) performFromFirstPage ;
 
 @end

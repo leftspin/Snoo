@@ -30,6 +30,15 @@
 		2788657419416BED007BBC37 /* SNOOPagedAccessByURLParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2788657319416BED007BBC37 /* SNOOPagedAccessByURLParameter.m */; };
 		27886577194186A5007BBC37 /* NSURL+Queries.m in Sources */ = {isa = PBXBuildFile; fileRef = 27886576194186A5007BBC37 /* NSURL+Queries.m */; };
 		2788657B19418B94007BBC37 /* SNOOFrontPageListingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2788657A19418B94007BBC37 /* SNOOFrontPageListingController.m */; };
+		278DB5FA194270DC00E79CCC /* NSArray+Ingest.m in Sources */ = {isa = PBXBuildFile; fileRef = 278DB5F9194270DC00E79CCC /* NSArray+Ingest.m */; };
+		278DB5FD1942729600E79CCC /* NSDictionary+Ingest.m in Sources */ = {isa = PBXBuildFile; fileRef = 278DB5FC1942729600E79CCC /* NSDictionary+Ingest.m */; };
+		278DB6001942800600E79CCC /* NSManagedObjectContext+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 278DB5FF1942800600E79CCC /* NSManagedObjectContext+Convenience.m */; };
+		278DB607194286DB00E79CCC /* SNOOPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 278DB606194286DB00E79CCC /* SNOOPost.m */; };
+		278DB6101942974E00E79CCC /* NSDate+Conversions.m in Sources */ = {isa = PBXBuildFile; fileRef = 278DB60F1942974E00E79CCC /* NSDate+Conversions.m */; };
+		278DB614194298E000E79CCC /* SNOOPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 278DB612194298E000E79CCC /* SNOOPostTableViewCell.m */; };
+		278DB615194298E000E79CCC /* SNOOPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 278DB613194298E000E79CCC /* SNOOPostTableViewCell.xib */; };
+		278DB61819429CC000E79CCC /* SNOOCounters.m in Sources */ = {isa = PBXBuildFile; fileRef = 278DB61719429CC000E79CCC /* SNOOCounters.m */; };
+		278DB61B1942A4E000E79CCC /* _SNOOPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 278DB61A1942A4E000E79CCC /* _SNOOPost.m */; };
 		27D2632F1942493C00DD0ADC /* NSDictionary+Recognize.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D2632E1942493C00DD0ADC /* NSDictionary+Recognize.m */; };
 		27D2633319424F0700DD0ADC /* SNOORedditConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D2633219424F0700DD0ADC /* SNOORedditConstants.m */; };
 		27D26336194255E700DD0ADC /* NSDictionary+Extract.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D26335194255E700DD0ADC /* NSDictionary+Extract.m */; };
@@ -82,6 +91,23 @@
 		27886576194186A5007BBC37 /* NSURL+Queries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+Queries.m"; sourceTree = "<group>"; };
 		2788657919418B94007BBC37 /* SNOOFrontPageListingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNOOFrontPageListingController.h; sourceTree = "<group>"; };
 		2788657A19418B94007BBC37 /* SNOOFrontPageListingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNOOFrontPageListingController.m; sourceTree = "<group>"; };
+		278DB5F8194270DC00E79CCC /* NSArray+Ingest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Ingest.h"; sourceTree = "<group>"; };
+		278DB5F9194270DC00E79CCC /* NSArray+Ingest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Ingest.m"; sourceTree = "<group>"; };
+		278DB5FB1942729600E79CCC /* NSDictionary+Ingest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Ingest.h"; sourceTree = "<group>"; };
+		278DB5FC1942729600E79CCC /* NSDictionary+Ingest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Ingest.m"; sourceTree = "<group>"; };
+		278DB5FE1942800500E79CCC /* NSManagedObjectContext+Convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+Convenience.h"; sourceTree = "<group>"; };
+		278DB5FF1942800600E79CCC /* NSManagedObjectContext+Convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+Convenience.m"; sourceTree = "<group>"; };
+		278DB605194286DB00E79CCC /* SNOOPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNOOPost.h; sourceTree = "<group>"; };
+		278DB606194286DB00E79CCC /* SNOOPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNOOPost.m; sourceTree = "<group>"; };
+		278DB60E1942974E00E79CCC /* NSDate+Conversions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Conversions.h"; sourceTree = "<group>"; };
+		278DB60F1942974E00E79CCC /* NSDate+Conversions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Conversions.m"; sourceTree = "<group>"; };
+		278DB611194298E000E79CCC /* SNOOPostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNOOPostTableViewCell.h; sourceTree = "<group>"; };
+		278DB612194298E000E79CCC /* SNOOPostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNOOPostTableViewCell.m; sourceTree = "<group>"; };
+		278DB613194298E000E79CCC /* SNOOPostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SNOOPostTableViewCell.xib; sourceTree = "<group>"; };
+		278DB61619429CC000E79CCC /* SNOOCounters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNOOCounters.h; sourceTree = "<group>"; };
+		278DB61719429CC000E79CCC /* SNOOCounters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNOOCounters.m; sourceTree = "<group>"; };
+		278DB6191942A4E000E79CCC /* _SNOOPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _SNOOPost.h; sourceTree = "<group>"; };
+		278DB61A1942A4E000E79CCC /* _SNOOPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _SNOOPost.m; sourceTree = "<group>"; };
 		27D2632D1942493C00DD0ADC /* NSDictionary+Recognize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Recognize.h"; sourceTree = "<group>"; };
 		27D2632E1942493C00DD0ADC /* NSDictionary+Recognize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Recognize.m"; sourceTree = "<group>"; };
 		27D2633119424F0700DD0ADC /* SNOORedditConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNOORedditConstants.h; sourceTree = "<group>"; };
@@ -155,8 +181,10 @@
 		2788652C19411CBF007BBC37 /* Snoo */ = {
 			isa = PBXGroup;
 			children = (
+				2788656919412BBE007BBC37 /* View */,
+				2788655A1941232D007BBC37 /* Model */,
 				2788657819418B70007BBC37 /* Front Page Listing */,
-				2788655B19412381007BBC37 /* Reddit Service */,
+				2788656C19412F7B007BBC37 /* Service */,
 				2788655919412316007BBC37 /* Application */,
 			);
 			path = Snoo;
@@ -183,10 +211,7 @@
 		2788655919412316007BBC37 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				2788656C19412F7B007BBC37 /* Service */,
-				2788655A1941232D007BBC37 /* Model */,
-				2788656919412BBE007BBC37 /* View */,
-				2788656219412443007BBC37 /* Categories */,
+				2788656219412443007BBC37 /* Convenience Categories */,
 				2788652E19411CBF007BBC37 /* Snoo-Info.plist */,
 				2788652F19411CBF007BBC37 /* InfoPlist.strings */,
 				2788653219411CBF007BBC37 /* main.m */,
@@ -202,6 +227,12 @@
 			isa = PBXGroup;
 			children = (
 				2788653819411CBF007BBC37 /* Snoo.xcdatamodeld */,
+				278DB605194286DB00E79CCC /* SNOOPost.h */,
+				278DB606194286DB00E79CCC /* SNOOPost.m */,
+				278DB61619429CC000E79CCC /* SNOOCounters.h */,
+				278DB61719429CC000E79CCC /* SNOOCounters.m */,
+				278DB6191942A4E000E79CCC /* _SNOOPost.h */,
+				278DB61A1942A4E000E79CCC /* _SNOOPost.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -213,25 +244,25 @@
 				2788655D19412397007BBC37 /* SNOORedditService.m */,
 				27D2633119424F0700DD0ADC /* SNOORedditConstants.h */,
 				27D2633219424F0700DD0ADC /* SNOORedditConstants.m */,
-				27D2632D1942493C00DD0ADC /* NSDictionary+Recognize.h */,
-				27D2632E1942493C00DD0ADC /* NSDictionary+Recognize.m */,
-				27D26334194255E700DD0ADC /* NSDictionary+Extract.h */,
-				27D26335194255E700DD0ADC /* NSDictionary+Extract.m */,
-				27F30E4B1942443600C9FE59 /* Converters */,
+				278DB601194282AD00E79CCC /* Reddit-related Categories */,
 				27F30E49194242E000C9FE59 /* Commands */,
 			);
 			name = "Reddit Service";
 			sourceTree = "<group>";
 		};
-		2788656219412443007BBC37 /* Categories */ = {
+		2788656219412443007BBC37 /* Convenience Categories */ = {
 			isa = PBXGroup;
 			children = (
 				27886563194124D4007BBC37 /* UIResponder+PerformSelector.h */,
 				27886564194124D4007BBC37 /* UIResponder+PerformSelector.m */,
 				27886575194186A5007BBC37 /* NSURL+Queries.h */,
 				27886576194186A5007BBC37 /* NSURL+Queries.m */,
+				278DB5FE1942800500E79CCC /* NSManagedObjectContext+Convenience.h */,
+				278DB5FF1942800600E79CCC /* NSManagedObjectContext+Convenience.m */,
+				278DB60E1942974E00E79CCC /* NSDate+Conversions.h */,
+				278DB60F1942974E00E79CCC /* NSDate+Conversions.m */,
 			);
-			name = Categories;
+			name = "Convenience Categories";
 			sourceTree = "<group>";
 		};
 		2788656919412BBE007BBC37 /* View */ = {
@@ -249,6 +280,7 @@
 				27886571194153F1007BBC37 /* SNOOPagedAccess.h */,
 				2788657219416BED007BBC37 /* SNOOPagedAccessByURLParameter.h */,
 				2788657319416BED007BBC37 /* SNOOPagedAccessByURLParameter.m */,
+				2788655B19412381007BBC37 /* Reddit Service */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -258,8 +290,26 @@
 			children = (
 				2788657919418B94007BBC37 /* SNOOFrontPageListingController.h */,
 				2788657A19418B94007BBC37 /* SNOOFrontPageListingController.m */,
+				278DB611194298E000E79CCC /* SNOOPostTableViewCell.h */,
+				278DB612194298E000E79CCC /* SNOOPostTableViewCell.m */,
+				278DB613194298E000E79CCC /* SNOOPostTableViewCell.xib */,
 			);
 			name = "Front Page Listing";
+			sourceTree = "<group>";
+		};
+		278DB601194282AD00E79CCC /* Reddit-related Categories */ = {
+			isa = PBXGroup;
+			children = (
+				278DB5F8194270DC00E79CCC /* NSArray+Ingest.h */,
+				278DB5F9194270DC00E79CCC /* NSArray+Ingest.m */,
+				278DB5FB1942729600E79CCC /* NSDictionary+Ingest.h */,
+				278DB5FC1942729600E79CCC /* NSDictionary+Ingest.m */,
+				27D2632D1942493C00DD0ADC /* NSDictionary+Recognize.h */,
+				27D2632E1942493C00DD0ADC /* NSDictionary+Recognize.m */,
+				27D26334194255E700DD0ADC /* NSDictionary+Extract.h */,
+				27D26335194255E700DD0ADC /* NSDictionary+Extract.m */,
+			);
+			name = "Reddit-related Categories";
 			sourceTree = "<group>";
 		};
 		27F30E49194242E000C9FE59 /* Commands */ = {
@@ -271,13 +321,6 @@
 				2788656F194132C3007BBC37 /* SNOORedditCommandFetchFrontPage.m */,
 			);
 			name = Commands;
-			sourceTree = "<group>";
-		};
-		27F30E4B1942443600C9FE59 /* Converters */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Converters;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,6 +403,7 @@
 			files = (
 				2788656B19412C02007BBC37 /* Main.storyboard in Resources */,
 				2788653119411CBF007BBC37 /* InfoPlist.strings in Resources */,
+				278DB615194298E000E79CCC /* SNOOPostTableViewCell.xib in Resources */,
 				2788653C19411CBF007BBC37 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,9 +456,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				278DB5FD1942729600E79CCC /* NSDictionary+Ingest.m in Sources */,
+				278DB6001942800600E79CCC /* NSManagedObjectContext+Convenience.m in Sources */,
+				278DB614194298E000E79CCC /* SNOOPostTableViewCell.m in Sources */,
+				278DB5FA194270DC00E79CCC /* NSArray+Ingest.m in Sources */,
 				27D26336194255E700DD0ADC /* NSDictionary+Extract.m in Sources */,
 				2788653319411CBF007BBC37 /* main.m in Sources */,
+				278DB61B1942A4E000E79CCC /* _SNOOPost.m in Sources */,
 				2788653A19411CBF007BBC37 /* Snoo.xcdatamodeld in Sources */,
+				278DB607194286DB00E79CCC /* SNOOPost.m in Sources */,
 				2788657B19418B94007BBC37 /* SNOOFrontPageListingController.m in Sources */,
 				27886565194124D4007BBC37 /* UIResponder+PerformSelector.m in Sources */,
 				2788657419416BED007BBC37 /* SNOOPagedAccessByURLParameter.m in Sources */,
@@ -424,7 +474,9 @@
 				27D2633319424F0700DD0ADC /* SNOORedditConstants.m in Sources */,
 				2788655E19412397007BBC37 /* SNOORedditService.m in Sources */,
 				27886570194132C3007BBC37 /* SNOORedditCommandFetchFrontPage.m in Sources */,
+				278DB61819429CC000E79CCC /* SNOOCounters.m in Sources */,
 				27886577194186A5007BBC37 /* NSURL+Queries.m in Sources */,
+				278DB6101942974E00E79CCC /* NSDate+Conversions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

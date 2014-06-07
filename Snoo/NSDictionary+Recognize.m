@@ -14,4 +14,13 @@
 	{
 	return [SNOORedditConstants structureTypeForID:[self valueForKey:@"kind"]] ;
 	}
+
+- (BOOL) isPost
+	{
+	// We only recognize links as posts
+	if( [[self valueForKey:@"kind"] isEqualToString:REDDIT_STRUCTURE_ID_LINK] )
+		return YES ;
+	
+	return NO ;
+	}
 @end

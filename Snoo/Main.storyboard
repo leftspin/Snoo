@@ -7,21 +7,11 @@
         <!--Front Page Listing Controller - Snoo-->
         <scene sceneID="Vmh-RO-T7u">
             <objects>
-                <tableViewController id="eUd-Sf-iIr" customClass="SNOOFrontPageListingController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="fgH-W5-23s">
+                <tableViewController restorationIdentifier="SNOO_UI_CONTEXT_FRONT_PAGE" id="eUd-Sf-iIr" customClass="SNOOFrontPageListingController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" restorationIdentifier="SNOO_UI_CONTEXT_FRONT_PAGE_TABLEVIEW" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="fgH-W5-23s">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="cFb-lF-hYD">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cFb-lF-hYD" id="0bP-Et-NeH">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="eUd-Sf-iIr" id="fBt-FW-PMP"/>
                             <outlet property="delegate" destination="eUd-Sf-iIr" id="Yzg-lk-hxi"/>
@@ -51,7 +41,7 @@
         <!--Navigation Controller-->
         <scene sceneID="mYU-tS-Xv7">
             <objects>
-                <navigationController definesPresentationContext="YES" id="Bp0-iI-IXe" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="NAVIGATION_CONTROLLER" definesPresentationContext="YES" id="Bp0-iI-IXe" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gvj-hS-afD">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

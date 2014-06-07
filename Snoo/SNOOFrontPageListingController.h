@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SNOOFrontPageListingController : UITableViewController
+#define SNOO_UI_CONTEXT_FRONT_PAGE @"SNOO_UI_CONTEXT_FRONT_PAGE"
+
+@interface SNOOFrontPageListingController : UITableViewController <NSFetchedResultsControllerDelegate>
 
 @end

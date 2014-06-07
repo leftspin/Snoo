@@ -9,12 +9,34 @@
 #import "SNOORedditCommandFetchFrontPage.h"
 #import "SNOOPagedAccessByURLParameter.h"
 #import "NSDictionary+Extract.h"
+#import "NSDictionary+Ingest.h"
+#import "SNOOFrontPageListingController.h"
+#import "SNOOCounters.h"
+#import "SNOOPost.h"
+#import "NSManagedObjectContext+Convenience.h"
 
 @interface SNOORedditCommandFetchFrontPage ()
-@property( nonatomic, strong ) id <SNOOPagedAccess> pager ;
+@property( nonatomic, strong ) NSManagedObjectContext *childMOC ;
 @end
 
 @implementation SNOORedditCommandFetchFrontPage
+
+#pragma mark - Instance
+
+- (instancetype) init
+	{
+	self = [super init] ;
+	if( self )
+		{
+		// http://www.cocoanetics.com/2012/07/multi-context-coredata/
+		NSManagedObjectContext *mainMOC = [UIApplication snooAppDelegate].managedObjectContext ;
+		self.childMOC = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType] ;
+		self.childMOC.parentContext = mainMOC ;
+		}
+	return self ;
+	}
+
+#pragma mark - SNOORedditCommandFetchFrontPage
 
 - (void) performFromFirstPage
 	{
@@ -22,6 +44,24 @@
 		return ;
 	
 	self.pager = nil ;
+	
+	// Clear out all objects that match the UI context
+	[self.childMOC performBlock:^
+		{
+		NSSet *objectsToDelete = [self.childMOC fetchObjectsForEntityName:SNOO_POST_ENTITY_NAME onlyIDs:YES withPredicate:@"ui_context == %@" , SNOO_UI_CONTEXT_FRONT_PAGE] ;
+		
+		[objectsToDelete enumerateObjectsUsingBlock:^(SNOOPost *post, BOOL *stop)
+			{
+			[self.childMOC deleteObject:post] ;
+			}] ;
+		
+		[self.childMOC saveRecursively] ;
+		}] ;
+	
+	// Reset the counter for this UI context
+	[[SNOOCounters sharedCounters] resetCounterWithName:SNOO_UI_CONTEXT_FRONT_PAGE] ;
+	
+	// Do eeeet
 	[self perform] ;
 	}
 
@@ -45,6 +85,7 @@
 - (BOOL) handleResponseObject: (id) responseObject error: (NSError **) pointerToError ;
 	{
 	NSParameterAssert(pointerToError) ;
+	*pointerToError = nil ; // Safety
 	
 	// See if it's a dictionary
 	if( ![responseObject isKindOfClass:[NSDictionary class]] )
@@ -61,8 +102,8 @@
 	
 	self.pager = nextPageToken ? [SNOOPagedAccessByURLParameter pagedAcccessByURLParameterWithNextPageToken:nextPageToken] : nil ;
 
-	// Get children
-	NSArray *items = [responseDict listingChildrenWithError:pointerToError] ;
+	// Ingest the Listing into SNOO_UI_CONTEXT_FRONT_PAGE
+	[responseDict ingestAsListingIntoUIContext:SNOO_UI_CONTEXT_FRONT_PAGE usingContext:self.childMOC error:pointerToError] ;
 	if( *pointerToError )
 		return NO ;
 	

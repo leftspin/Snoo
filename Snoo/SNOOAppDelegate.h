@@ -20,3 +20,7 @@
 - (NSURL *)applicationDocumentsDirectory;
 
 @end
+
+@interface UIApplication (Convenience)
++ (SNOOAppDelegate *) snooAppDelegate ;
+@end
