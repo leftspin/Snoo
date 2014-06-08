@@ -12,6 +12,7 @@
 #import "NSDictionary+Recognize.h"
 #import "SNOOPost.h"
 #import "NSDate+Conversions.h"
+#import "NSString+Prettify.h"
 
 @implementation NSDictionary (Ingest)
 
@@ -50,7 +51,7 @@
 		}
 		
 	post.kind = SAFESTRING(self[@"kind"]) ;
-	post.title = SAFESTRING([self valueForKeyPath:@"data.title"]) ;
+	post.title = [SAFESTRING([self valueForKeyPath:@"data.title"]) prettyfy] ;
 	post.is_self = [self valueForKeyPath:@"data.is_self"] ;
 	post.redditID = SAFESTRING([self valueForKeyPath:@"data.id"]) ;
 	post.selftext = SAFESTRING([self valueForKeyPath:@"data.selftext"]) ;

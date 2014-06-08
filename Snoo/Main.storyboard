@@ -18,11 +18,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Snoo" id="Hs2-S2-SJ8">
-                        <barButtonItem key="leftBarButtonItem" systemItem="fastForward" id="zL0-YC-4ZQ">
-                            <connections>
-                                <action selector="nextPageTapped:" destination="eUd-Sf-iIr" id="kCh-4h-amN"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="oTB-9Q-JKL">
                             <connections>
                                 <action selector="refreshTapped:" destination="eUd-Sf-iIr" id="Ssv-QQ-JoU"/>
@@ -30,7 +25,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="fetchNextPageButton" destination="zL0-YC-4ZQ" id="y8r-aZ-L3b"/>
                         <outlet property="refreshFromTopButton" destination="oTB-9Q-JKL" id="hS2-Qx-7KP"/>
                     </connections>
                 </tableViewController>

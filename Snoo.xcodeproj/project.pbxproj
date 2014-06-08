@@ -41,6 +41,7 @@
 		278E70A31944EA4B00D14D1A /* SORelativeDateTransformer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 278E709E1944EA4B00D14D1A /* SORelativeDateTransformer.bundle */; };
 		278E70A41944EA4B00D14D1A /* SORelativeDateTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 278E70A01944EA4B00D14D1A /* SORelativeDateTransformer.m */; };
 		278E70A51944EA4B00D14D1A /* NSDate(FriendlyDate).m in Sources */ = {isa = PBXBuildFile; fileRef = 278E70A21944EA4B00D14D1A /* NSDate(FriendlyDate).m */; };
+		2790B754194500A0000A903E /* NSString+Prettify.m in Sources */ = {isa = PBXBuildFile; fileRef = 2790B753194500A0000A903E /* NSString+Prettify.m */; };
 		27D2632F1942493C00DD0ADC /* NSDictionary+Recognize.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D2632E1942493C00DD0ADC /* NSDictionary+Recognize.m */; };
 		27D2633319424F0700DD0ADC /* SNOORedditConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D2633219424F0700DD0ADC /* SNOORedditConstants.m */; };
 		27D26336194255E700DD0ADC /* NSDictionary+Extract.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D26335194255E700DD0ADC /* NSDictionary+Extract.m */; };
@@ -113,6 +114,8 @@
 		278E70A01944EA4B00D14D1A /* SORelativeDateTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SORelativeDateTransformer.m; sourceTree = "<group>"; };
 		278E70A11944EA4B00D14D1A /* NSDate(FriendlyDate).h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate(FriendlyDate).h"; sourceTree = "<group>"; };
 		278E70A21944EA4B00D14D1A /* NSDate(FriendlyDate).m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate(FriendlyDate).m"; sourceTree = "<group>"; };
+		2790B752194500A0000A903E /* NSString+Prettify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Prettify.h"; sourceTree = "<group>"; };
+		2790B753194500A0000A903E /* NSString+Prettify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Prettify.m"; sourceTree = "<group>"; };
 		27D2632D1942493C00DD0ADC /* NSDictionary+Recognize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Recognize.h"; sourceTree = "<group>"; };
 		27D2632E1942493C00DD0ADC /* NSDictionary+Recognize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Recognize.m"; sourceTree = "<group>"; };
 		27D2633119424F0700DD0ADC /* SNOORedditConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNOORedditConstants.h; sourceTree = "<group>"; };
@@ -265,6 +268,8 @@
 				278DB5FF1942800600E79CCC /* NSManagedObjectContext+Convenience.m */,
 				278DB60E1942974E00E79CCC /* NSDate+Conversions.h */,
 				278DB60F1942974E00E79CCC /* NSDate+Conversions.m */,
+				2790B752194500A0000A903E /* NSString+Prettify.h */,
+				2790B753194500A0000A903E /* NSString+Prettify.m */,
 			);
 			name = "Convenience Categories";
 			sourceTree = "<group>";
@@ -500,6 +505,7 @@
 				2788656819412A86007BBC37 /* SNOORedditCommand.m in Sources */,
 				27D2633319424F0700DD0ADC /* SNOORedditConstants.m in Sources */,
 				2788655E19412397007BBC37 /* SNOORedditService.m in Sources */,
+				2790B754194500A0000A903E /* NSString+Prettify.m in Sources */,
 				27886570194132C3007BBC37 /* SNOORedditCommandFetchFrontPage.m in Sources */,
 				27886577194186A5007BBC37 /* NSURL+Queries.m in Sources */,
 				278DB6101942974E00E79CCC /* NSDate+Conversions.m in Sources */,

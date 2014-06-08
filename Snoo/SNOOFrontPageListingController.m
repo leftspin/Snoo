@@ -13,6 +13,7 @@
 #import "SNOOPost.h"
 #import "SNOOPagedAccess.h"
 #import "NSDate(FriendlyDate).h"
+@import QuartzCore ;
 
 #define SNOO_UI_CONTEXT_FRONT_PAGE_PAGER_DEFAULTS_KEY @"SNOO_UI_CONTEXT_FRONT_PAGE_PAGER_DEFAULTS_KEY"
 
@@ -21,6 +22,9 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *fetchNextPageButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *refreshFromTopButton;
 @property (nonatomic, strong, readonly) NSFetchedResultsController *fetchedResultsController ;
+@property (nonatomic, strong) UIButton *loadMoreButton ;
+@property (nonatomic, strong) UIView *loadMoreFooterView ;
+@property (nonatomic, strong) UIActivityIndicatorView *activityIndicator ;
 
 @property( nonatomic, assign ) BOOL reloadEnabled ;
 @property( nonatomic, assign ) BOOL loadMoreEnabled ;
@@ -32,6 +36,9 @@
 	BOOL _ignoreScroll ;
 	CGFloat _lastRecordedContentOffsetYPosition ;
 	CGFloat _headerHeight ; // Records the height of the header
+	
+	// Spacing views
+	UIView *_topSpacer ;
 	}
 
 #pragma mark - Properties
@@ -47,9 +54,8 @@
 	{
 	_loadMoreEnabled = loadMoreEnabled ;
 	
-	[self showLoadMoreIndicator:loadMoreEnabled] ;
+	[self enableLoadMoreIndicator:loadMoreEnabled] ;
 	}
-
 
 #pragma mark - View lifecycle
 
@@ -59,12 +65,36 @@
 	
 	self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone ;
 
+	// Load more button
+#define LOAD_MORE_PADDING (10)
+	self.loadMoreButton = [UIButton buttonWithType:UIButtonTypeCustom] ;
+	self.loadMoreButton.titleLabel.textAlignment = NSTextAlignmentCenter ;
+	[self.loadMoreButton setTitle:@"No more items" forState:UIControlStateNormal] ;
+	[self.loadMoreButton setTitleColor:[SNOOPostTableViewCell exemplar].backgroundColor forState:UIControlStateNormal] ;
+	[self.loadMoreButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted] ;
+	[self.loadMoreButton sizeToFit] ;
+	self.loadMoreFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, self.loadMoreButton.frame.size.height + LOAD_MORE_PADDING * 2.0)] ;
+	self.loadMoreButton.frame = CGRectMake((self.loadMoreFooterView.bounds.size.width - self.loadMoreButton.frame.size.width)/2.0, LOAD_MORE_PADDING, self.loadMoreButton.frame.size.width, self.loadMoreButton.frame.size.height) ;
+	[self.loadMoreFooterView addSubview:self.loadMoreButton] ;
+	[self.loadMoreButton addTarget:self action:@selector(nextPageTapped:) forControlEvents:UIControlEventTouchUpInside] ;
+	self.tableView.tableFooterView = self.loadMoreFooterView ;
+	self.activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite] ;
+	self.activityIndicator.hidesWhenStopped = YES ;
+	self.activityIndicator.color = [SNOOPostTableViewCell exemplar].backgroundColor ;
+	self.activityIndicator.frame = CGRectMake((self.loadMoreFooterView.bounds.size.width - self.activityIndicator.frame.size.width)/2.0, (self.loadMoreFooterView.bounds.size.height - self.activityIndicator.frame.size.height)/2.0, self.activityIndicator.frame.size.width, self.activityIndicator.frame.size.height) ;
+	[self.loadMoreFooterView addSubview:self.activityIndicator] ;
+	
 	// Auto inset adjustment is off in the nib, so we calculate it manually here
 	CGFloat statusHeight = [UIApplication sharedApplication].statusBarFrame.size.height ;
 	CGFloat navigationHeight = self.navigationController.navigationBar.frame.size.height ;
 	_headerHeight = statusHeight + navigationHeight ;
 	self.tableView.contentInset = UIEdgeInsetsMake(_headerHeight, 0, 0, 0) ;
 
+	// Top spacer for table view
+	_topSpacer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, 20)] ;
+	_topSpacer.backgroundColor = [SNOOPostTableViewCell exemplar].backgroundColor ;
+	self.tableView.tableHeaderView = _topSpacer ;
+	
 	// Register cell classes
 	[self.tableView registerNib:[UINib nibWithNibName:@"SNOOPostTableViewCell" bundle:nil] forCellReuseIdentifier:SNOO_POST_TABLEVIEW_CELL_ID] ;
 	
@@ -89,8 +119,10 @@
 		NSData *encodedPaging = [NSKeyedArchiver archivedDataWithRootObject:strongSelf.fetchCommand.pager] ;
 		[[NSUserDefaults standardUserDefaults] setObject:encodedPaging forKey:SNOO_UI_CONTEXT_FRONT_PAGE_PAGER_DEFAULTS_KEY] ;
 		[[NSUserDefaults standardUserDefaults] synchronize] ;
+		
+		[strongSelf indicateLoading:NO] ;
 		} ;
-	
+
 	// Restore paging
 	NSData *encodedPaging = [[NSUserDefaults standardUserDefaults] dataForKey:SNOO_UI_CONTEXT_FRONT_PAGE_PAGER_DEFAULTS_KEY] ;
 	id <SNOOPagedAccess> pager = [NSKeyedUnarchiver unarchiveObjectWithData:encodedPaging] ;
@@ -112,11 +144,25 @@
     SNOOPost *post = [self.fetchedResultsController objectAtIndexPath:indexPath] ;
 	cell.postLabel.text = post.title ;
 	cell.dateLabel.text = [post.created_date friendlyDateWithEndDate:nil] ;
+//	cell.postLabel.layer.borderColor = [UIColor yellowColor].CGColor ;
+//	cell.postLabel.layer.borderWidth = 1 ;
 	}
 
-- (void) showLoadMoreIndicator: (BOOL) show // Shouldn't normally call this manually, instead set self.loadMoreEnabled
+- (void) enableLoadMoreIndicator: (BOOL) show // Shouldn't normally call this manually, instead set self.loadMoreEnabled
 	{
 	self.fetchNextPageButton.enabled = show ;
+	self.loadMoreButton.enabled = show ;
+	[self.loadMoreButton setTitle:show?@"Load more…":@"No more items" forState:UIControlStateNormal] ;
+	}
+
+- (void) indicateLoading: (BOOL) isLoading
+	{
+	self.loadMoreButton.hidden = isLoading ; // hide button if loading
+	
+	if( isLoading )
+		[self.activityIndicator startAnimating] ;
+	else
+		[self.activityIndicator stopAnimating] ;
 	}
 
 #pragma mark - UITableView datasource and delegate
@@ -189,6 +235,7 @@
 	{
 	self.reloadEnabled = NO ;
 	self.loadMoreEnabled = NO ;
+	[self indicateLoading:YES] ;
 	[self.fetchCommand performFromFirstPage] ;
 	}
 
@@ -196,6 +243,8 @@
 	{
 	self.reloadEnabled = NO ;
 	self.loadMoreEnabled = NO ;
+	
+	[self indicateLoading:YES] ;
 	[self.fetchCommand perform] ;
 	}
 
@@ -316,5 +365,5 @@
 	_lastRecordedContentOffsetYPosition = scrollView.contentOffset.y ;
 	}
 
-
 @end
+

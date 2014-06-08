@@ -10,6 +10,14 @@
 
 #define CONTENT_PADDING (20)
 
+
+@interface SNOOPostTableViewCell ()
+@property (weak, nonatomic) IBOutlet UIView *containerView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *postLabelTopToSuperviewConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *postLabelBottomToSuperviewContraint;
+
+@end
+
 @implementation SNOOPostTableViewCell
 
 #pragma mark - Instance
@@ -41,12 +49,12 @@
 	{
 	SNOOPostTableViewCell *exemplar = [SNOOPostTableViewCell exemplar] ;
 	
-	CGRect frame = exemplar.frame ;
-	frame.size.height = CGFLOAT_MAX ;
 	exemplar.postLabel.text = text ;
-	[exemplar.contentView layoutIfNeeded] ;
+	[exemplar.postLabel invalidateIntrinsicContentSize] ;
+	[exemplar.postLabel layoutIfNeeded] ;
+	[exemplar.containerView layoutIfNeeded] ;
 	
-	return exemplar.postLabel.frame.size.height + CONTENT_PADDING * 2.0 ;
+	return MIN(exemplar.postLabel.frame.size.height + CONTENT_PADDING * 2.0, exemplar.frame.size.width * (3.0/4.0)) ;
 	}
 
 @end
