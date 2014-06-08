@@ -12,6 +12,7 @@
 #import "SNOOPostTableViewCell.h"
 #import "SNOOPost.h"
 #import "SNOOPagedAccess.h"
+#import "NSDate(FriendlyDate).h"
 
 #define SNOO_UI_CONTEXT_FRONT_PAGE_PAGER_DEFAULTS_KEY @"SNOO_UI_CONTEXT_FRONT_PAGE_PAGER_DEFAULTS_KEY"
 
@@ -53,6 +54,8 @@
 	{
 	[super viewDidLoad] ;
 	
+	self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone ;
+	
 	// Register cell classes
 	[self.tableView registerNib:[UINib nibWithNibName:@"SNOOPostTableViewCell" bundle:nil] forCellReuseIdentifier:SNOO_POST_TABLEVIEW_CELL_ID] ;
 	
@@ -91,8 +94,8 @@
 - (void) configureCell: (SNOOPostTableViewCell *) cell atIndexPath: (NSIndexPath *) indexPath
 	{
     SNOOPost *post = [self.fetchedResultsController objectAtIndexPath:indexPath] ;
-	cell.textLabel.text = post.title ;
-	cell.detailTextLabel.text = post.service_order.stringValue ;
+	cell.postLabel.text = post.title ;
+	cell.dateLabel.text = [post.created_date friendlyDateWithEndDate:nil] ;
 	}
 
 - (void) showLoadMoreIndicator: (BOOL) show // Shouldn't normally call this manually, instead set self.loadMoreEnabled
@@ -123,6 +126,13 @@
 	SNOOPostTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:SNOO_POST_TABLEVIEW_CELL_ID] ;
 	[self configureCell:cell atIndexPath:indexPath] ;
 	return cell ;
+	}
+
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+	{
+	SNOOPost *post = [self.fetchedResultsController objectAtIndexPath:indexPath] ;
+
+	return [SNOOPostTableViewCell heightWithPostText:post.title] ;
 	}
 
 #pragma mark - NSFetchedResultsController

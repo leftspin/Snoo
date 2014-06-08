@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface NSDate (Conversions)
-+ (NSDate *) dateFromUTCEpochTimeString: (NSString *) utcEpochTimeString ;
++ (NSDate *) dateFromUTCEpochTime: (NSNumber *) utcEpochTime ;
 @end

@@ -38,6 +38,9 @@
 		278DB614194298E000E79CCC /* SNOOPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 278DB612194298E000E79CCC /* SNOOPostTableViewCell.m */; };
 		278DB615194298E000E79CCC /* SNOOPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 278DB613194298E000E79CCC /* SNOOPostTableViewCell.xib */; };
 		278DB61B1942A4E000E79CCC /* _SNOOPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 278DB61A1942A4E000E79CCC /* _SNOOPost.m */; };
+		278E70A31944EA4B00D14D1A /* SORelativeDateTransformer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 278E709E1944EA4B00D14D1A /* SORelativeDateTransformer.bundle */; };
+		278E70A41944EA4B00D14D1A /* SORelativeDateTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 278E70A01944EA4B00D14D1A /* SORelativeDateTransformer.m */; };
+		278E70A51944EA4B00D14D1A /* NSDate(FriendlyDate).m in Sources */ = {isa = PBXBuildFile; fileRef = 278E70A21944EA4B00D14D1A /* NSDate(FriendlyDate).m */; };
 		27D2632F1942493C00DD0ADC /* NSDictionary+Recognize.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D2632E1942493C00DD0ADC /* NSDictionary+Recognize.m */; };
 		27D2633319424F0700DD0ADC /* SNOORedditConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D2633219424F0700DD0ADC /* SNOORedditConstants.m */; };
 		27D26336194255E700DD0ADC /* NSDictionary+Extract.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D26335194255E700DD0ADC /* NSDictionary+Extract.m */; };
@@ -105,6 +108,11 @@
 		278DB613194298E000E79CCC /* SNOOPostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SNOOPostTableViewCell.xib; sourceTree = "<group>"; };
 		278DB6191942A4E000E79CCC /* _SNOOPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _SNOOPost.h; sourceTree = "<group>"; };
 		278DB61A1942A4E000E79CCC /* _SNOOPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _SNOOPost.m; sourceTree = "<group>"; };
+		278E709E1944EA4B00D14D1A /* SORelativeDateTransformer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SORelativeDateTransformer.bundle; sourceTree = "<group>"; };
+		278E709F1944EA4B00D14D1A /* SORelativeDateTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SORelativeDateTransformer.h; sourceTree = "<group>"; };
+		278E70A01944EA4B00D14D1A /* SORelativeDateTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SORelativeDateTransformer.m; sourceTree = "<group>"; };
+		278E70A11944EA4B00D14D1A /* NSDate(FriendlyDate).h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate(FriendlyDate).h"; sourceTree = "<group>"; };
+		278E70A21944EA4B00D14D1A /* NSDate(FriendlyDate).m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate(FriendlyDate).m"; sourceTree = "<group>"; };
 		27D2632D1942493C00DD0ADC /* NSDictionary+Recognize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Recognize.h"; sourceTree = "<group>"; };
 		27D2632E1942493C00DD0ADC /* NSDictionary+Recognize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Recognize.m"; sourceTree = "<group>"; };
 		27D2633119424F0700DD0ADC /* SNOORedditConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNOORedditConstants.h; sourceTree = "<group>"; };
@@ -248,6 +256,7 @@
 		2788656219412443007BBC37 /* Convenience Categories */ = {
 			isa = PBXGroup;
 			children = (
+				278E709D1944EA3C00D14D1A /* Friendly Date */,
 				27886563194124D4007BBC37 /* UIResponder+PerformSelector.h */,
 				27886564194124D4007BBC37 /* UIResponder+PerformSelector.m */,
 				27886575194186A5007BBC37 /* NSURL+Queries.h */,
@@ -285,9 +294,7 @@
 			children = (
 				2788657919418B94007BBC37 /* SNOOFrontPageListingController.h */,
 				2788657A19418B94007BBC37 /* SNOOFrontPageListingController.m */,
-				278DB611194298E000E79CCC /* SNOOPostTableViewCell.h */,
-				278DB612194298E000E79CCC /* SNOOPostTableViewCell.m */,
-				278DB613194298E000E79CCC /* SNOOPostTableViewCell.xib */,
+				27EEFE3F1944E5230058AD49 /* View */,
 			);
 			name = "Front Page Listing";
 			sourceTree = "<group>";
@@ -305,6 +312,28 @@
 				27D26335194255E700DD0ADC /* NSDictionary+Extract.m */,
 			);
 			name = "Reddit-related Categories";
+			sourceTree = "<group>";
+		};
+		278E709D1944EA3C00D14D1A /* Friendly Date */ = {
+			isa = PBXGroup;
+			children = (
+				278E709E1944EA4B00D14D1A /* SORelativeDateTransformer.bundle */,
+				278E709F1944EA4B00D14D1A /* SORelativeDateTransformer.h */,
+				278E70A01944EA4B00D14D1A /* SORelativeDateTransformer.m */,
+				278E70A11944EA4B00D14D1A /* NSDate(FriendlyDate).h */,
+				278E70A21944EA4B00D14D1A /* NSDate(FriendlyDate).m */,
+			);
+			name = "Friendly Date";
+			sourceTree = "<group>";
+		};
+		27EEFE3F1944E5230058AD49 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				278DB611194298E000E79CCC /* SNOOPostTableViewCell.h */,
+				278DB612194298E000E79CCC /* SNOOPostTableViewCell.m */,
+				278DB613194298E000E79CCC /* SNOOPostTableViewCell.xib */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		27F30E49194242E000C9FE59 /* Commands */ = {
@@ -399,6 +428,7 @@
 				2788656B19412C02007BBC37 /* Main.storyboard in Resources */,
 				2788653119411CBF007BBC37 /* InfoPlist.strings in Resources */,
 				278DB615194298E000E79CCC /* SNOOPostTableViewCell.xib in Resources */,
+				278E70A31944EA4B00D14D1A /* SORelativeDateTransformer.bundle in Resources */,
 				2788653C19411CBF007BBC37 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -455,6 +485,7 @@
 				278DB6001942800600E79CCC /* NSManagedObjectContext+Convenience.m in Sources */,
 				278DB614194298E000E79CCC /* SNOOPostTableViewCell.m in Sources */,
 				278DB5FA194270DC00E79CCC /* NSArray+Ingest.m in Sources */,
+				278E70A51944EA4B00D14D1A /* NSDate(FriendlyDate).m in Sources */,
 				27D26336194255E700DD0ADC /* NSDictionary+Extract.m in Sources */,
 				2788653319411CBF007BBC37 /* main.m in Sources */,
 				278DB61B1942A4E000E79CCC /* _SNOOPost.m in Sources */,
@@ -463,6 +494,7 @@
 				2788657B19418B94007BBC37 /* SNOOFrontPageListingController.m in Sources */,
 				27886565194124D4007BBC37 /* UIResponder+PerformSelector.m in Sources */,
 				2788657419416BED007BBC37 /* SNOOPagedAccessByURLParameter.m in Sources */,
+				278E70A41944EA4B00D14D1A /* SORelativeDateTransformer.m in Sources */,
 				27D2632F1942493C00DD0ADC /* NSDictionary+Recognize.m in Sources */,
 				2788653719411CBF007BBC37 /* SNOOAppDelegate.m in Sources */,
 				2788656819412A86007BBC37 /* SNOORedditCommand.m in Sources */,

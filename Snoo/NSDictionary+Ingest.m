@@ -55,10 +55,7 @@
 	post.redditID = SAFESTRING([self valueForKeyPath:@"data.id"]) ;
 	post.selftext = SAFESTRING([self valueForKeyPath:@"data.selftext"]) ;
 	post.url = SAFESTRING([self valueForKeyPath:@"data.url"]) ;
-
-	NSString *utcEpochTimeString = SAFESTRING([self valueForKeyPath:@"data.created_utc"]) ;
-	if( utcEpochTimeString.length > 0 )
-		post.created_date = [NSDate dateFromUTCEpochTimeString:utcEpochTimeString] ;
+	post.created_date = [NSDate dateFromUTCEpochTime:[self valueForKeyPath:@"data.created_utc"]] ;
 
 	return YES ;
 	}
