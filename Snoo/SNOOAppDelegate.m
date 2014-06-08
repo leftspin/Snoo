@@ -23,6 +23,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 	{
+	self.shouldShowStatusBar = YES ;
+	
 	// Set up the Reddit service
 	self.redditService = [SNOORedditService new] ;
 	

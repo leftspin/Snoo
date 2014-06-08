@@ -31,6 +31,7 @@
 	NSFetchedResultsController *_fetchedResultsController ;
 	BOOL _ignoreScroll ;
 	CGFloat _lastRecordedContentOffsetYPosition ;
+	CGFloat _headerHeight ; // Records the height of the header
 	}
 
 #pragma mark - Properties
@@ -57,7 +58,13 @@
 	[super viewDidLoad] ;
 	
 	self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone ;
-	
+
+	// Auto inset adjustment is off in the nib, so we calculate it manually here
+	CGFloat statusHeight = [UIApplication sharedApplication].statusBarFrame.size.height ;
+	CGFloat navigationHeight = self.navigationController.navigationBar.frame.size.height ;
+	_headerHeight = statusHeight + navigationHeight ;
+	self.tableView.contentInset = UIEdgeInsetsMake(_headerHeight, 0, 0, 0) ;
+
 	// Register cell classes
 	[self.tableView registerNib:[UINib nibWithNibName:@"SNOOPostTableViewCell" bundle:nil] forCellReuseIdentifier:SNOO_POST_TABLEVIEW_CELL_ID] ;
 	
@@ -278,7 +285,7 @@
 			{
 			}] ;
 		}
-	else if( scrollView.contentOffset.y - _lastRecordedContentOffsetYPosition > 1 && [UIApplication snooAppDelegate].shouldShowStatusBar )
+	else if( scrollView.contentOffset.y - _lastRecordedContentOffsetYPosition > 1 && [UIApplication snooAppDelegate].shouldShowStatusBar && scrollView.contentOffset.y > _headerHeight)
 		{
 		NSLog(@"case2") ;
 		
