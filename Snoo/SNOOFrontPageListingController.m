@@ -29,6 +29,8 @@
 @implementation SNOOFrontPageListingController
 	{
 	NSFetchedResultsController *_fetchedResultsController ;
+	BOOL _ignoreScroll ;
+	CGFloat _lastRecordedContentOffsetYPosition ;
 	}
 
 #pragma mark - Properties
@@ -87,6 +89,13 @@
 	id <SNOOPagedAccess> pager = [NSKeyedUnarchiver unarchiveObjectWithData:encodedPaging] ;
 	self.fetchCommand.pager = pager ;
 	self.loadMoreEnabled = self.fetchCommand.pager.hasNextPage ;
+	}
+
+#pragma mark - UIViewController
+
+- (BOOL)prefersStatusBarHidden
+	{
+	return ![UIApplication snooAppDelegate].shouldShowStatusBar ;
 	}
 
 #pragma mark - Display
@@ -248,5 +257,57 @@
 	{
     [self.tableView endUpdates];
 	}
+
+#pragma mark - UIScrollViewDelegate
+
+- (void) scrollViewDidScroll:(UIScrollView *)scrollView
+	{
+	if( _ignoreScroll )
+		return ;
+
+	if( scrollView.contentOffset.y <= 0 && ![UIApplication snooAppDelegate].shouldShowStatusBar )
+		{
+		NSLog(@"case1") ;
+		[UIApplication snooAppDelegate].shouldShowStatusBar = YES ;
+		[UIView animateWithDuration:0.25 animations:^
+			{
+			[self setNeedsStatusBarAppearanceUpdate] ;
+			[self.navigationController setNavigationBarHidden:NO animated:YES] ;
+			}
+		completion:^(BOOL finished)
+			{
+			}] ;
+		}
+	else if( scrollView.contentOffset.y - _lastRecordedContentOffsetYPosition > 1 && [UIApplication snooAppDelegate].shouldShowStatusBar )
+		{
+		NSLog(@"case2") ;
+		
+		[UIApplication snooAppDelegate].shouldShowStatusBar = NO ;
+		[UIView animateWithDuration:0.25 animations:^
+			{
+			[self setNeedsStatusBarAppearanceUpdate] ;
+			[self.navigationController setNavigationBarHidden:YES animated:YES] ;
+			}
+		completion:^(BOOL finished)
+			{
+			}] ;
+		}
+	else if( scrollView.contentOffset.y - _lastRecordedContentOffsetYPosition < -1 && scrollView.contentOffset.y - _lastRecordedContentOffsetYPosition > -10 && ![UIApplication snooAppDelegate].shouldShowStatusBar )
+		{
+		NSLog(@"case3") ;
+		[UIApplication snooAppDelegate].shouldShowStatusBar = YES ;
+		[UIView animateWithDuration:0.25 animations:^
+			{
+			[self setNeedsStatusBarAppearanceUpdate] ;
+			[self.navigationController setNavigationBarHidden:NO animated:YES] ;
+			}
+		completion:^(BOOL finished)
+			{
+			}] ;
+		}
+
+	_lastRecordedContentOffsetYPosition = scrollView.contentOffset.y ;
+	}
+
 
 @end
