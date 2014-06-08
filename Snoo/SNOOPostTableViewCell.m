@@ -44,8 +44,7 @@
 	CGRect frame = exemplar.frame ;
 	frame.size.height = CGFLOAT_MAX ;
 	exemplar.postLabel.text = text ;
-	[exemplar.postLabel invalidateIntrinsicContentSize] ;
-	[exemplar.postLabel layoutIfNeeded] ;
+	[exemplar.contentView layoutIfNeeded] ;
 	
 	return exemplar.postLabel.frame.size.height + CONTENT_PADDING * 2.0 ;
 	}
