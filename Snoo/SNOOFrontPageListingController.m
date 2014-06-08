@@ -65,6 +65,9 @@
 	
 	self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone ;
 
+	// Match colors
+	self.navigationItem.rightBarButtonItem.tintColor = [SNOOPostTableViewCell exemplar].backgroundColor ;
+	
 	// Load more button
 #define LOAD_MORE_PADDING (10)
 	self.loadMoreButton = [UIButton buttonWithType:UIButtonTypeCustom] ;
@@ -111,7 +114,10 @@
 		strongSelf.reloadEnabled = YES ;
 
 		if( error )
+			{
 			NSLog(@"%@", error.localizedDescription) ;
+			[[[UIAlertView alloc] initWithTitle:@"Couldn't load items" message:@"Please try again in a bit" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show] ;
+			}
 		else
 			NSLog(@"Command successful!") ;
 		
@@ -128,6 +134,10 @@
 	id <SNOOPagedAccess> pager = [NSKeyedUnarchiver unarchiveObjectWithData:encodedPaging] ;
 	self.fetchCommand.pager = pager ;
 	self.loadMoreEnabled = self.fetchCommand.pager.hasNextPage ;
+	
+	// If there aren't any objects, load some
+	if( self.fetchedResultsController.fetchedObjects.count == 0 )
+		[self.fetchCommand perform] ;
 	}
 
 #pragma mark - UIViewController
@@ -157,12 +167,20 @@
 
 - (void) indicateLoading: (BOOL) isLoading
 	{
-	self.loadMoreButton.hidden = isLoading ; // hide button if loading
-	
 	if( isLoading )
+		{
+		self.loadMoreButton.hidden = YES ;
 		[self.activityIndicator startAnimating] ;
+		}
 	else
+		{
+		// Do this after a beat so it doesn't flash immediately back
+		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^
+			{
+			self.loadMoreButton.hidden = NO ;
+			}) ;
 		[self.activityIndicator stopAnimating] ;
+		}
 	}
 
 #pragma mark - UITableView datasource and delegate
@@ -195,6 +213,13 @@
 	SNOOPost *post = [self.fetchedResultsController objectAtIndexPath:indexPath] ;
 
 	return [SNOOPostTableViewCell heightWithPostText:post.title] ;
+	}
+
+- (void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+	{
+	// Support auto load more
+	if( indexPath.row == self.fetchedResultsController.fetchedObjects.count-1 && self.fetchCommand.pager.hasNextPage )
+		[self nextPageTapped:self.navigationItem.rightBarButtonItem] ; // lies
 	}
 
 #pragma mark - NSFetchedResultsController
