@@ -8,6 +8,7 @@
 
 #import "SNOOAppDelegate.h"
 #import "SNOORedditService.h"
+#import "AsyncImageFetcher.h"
 
 #define SNOO_CORE_DATA_STORE_FILENAME @"Snoo.sqlite"
 
@@ -49,9 +50,9 @@
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
-{
-	// Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
+	{
+	[AsyncImageFetcher deleteOldImages] ;
+	}
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {

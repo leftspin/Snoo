@@ -17,6 +17,8 @@
 #import "NSDate(FriendlyDate).h"
 #import "SNOOSelfTextController.h"
 #import "SNOOWebBrowserController.h"
+#import "AsyncImageFetcher.h"
+#import "UIImageView+ImageFitting.h"
 
 #define SNOO_UI_CONTEXT_FRONT_PAGE_PAGER_DEFAULTS_KEY @"SNOO_UI_CONTEXT_FRONT_PAGE_PAGER_DEFAULTS_KEY"
 
@@ -42,6 +44,9 @@
 	
 	// Spacing views
 	UIView *_topSpacer ;
+	
+	// A queue to process thumbnails
+	dispatch_queue_t _thumbnailQueue ;
 	}
 
 #pragma mark - Properties
@@ -66,6 +71,10 @@
 	{
 	[super viewDidLoad] ;
 	
+	// Thumbnail queue
+	_thumbnailQueue = dispatch_queue_create("com.ivm.snoo.frontpage.thumbnailRenderingQueue", DISPATCH_QUEUE_CONCURRENT) ;
+	
+	// Tableview
 	self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone ;
 
 	// Match colors
@@ -156,21 +165,54 @@
 - (void) configureCell: (SNOOPostTableViewCell *) cell atIndexPath: (NSIndexPath *) indexPath
 	{
     SNOOPost *post = [self.fetchedResultsController objectAtIndexPath:indexPath] ;
+
+//	cell.postLabel.layer.borderWidth = 1 ;
+//	cell.postLabel.layer.borderColor = [UIColor yellowColor].CGColor ;
+	
+	// Easy stuff
 	cell.postLabel.text = post.title ;
 	cell.dateLabel.text = [post.created_date friendlyDateWithEndDate:nil] ;
+	cell.commentsLabel.text = [NSString stringWithFormat:@"%@" , post.num_comments] ;
 	
+	// Post type
 	cell.postTypeIndicator.text = nil ;
 	if( post.is_self.boolValue && post.selftext.length > 0 )
 		cell.postTypeIndicator.text = @"(read more)" ;
 	else if( post.url.length > 0 )
 		cell.postTypeIndicator.text = @"(link)" ;
 	
+	// Score
 	UIFontDescriptor *labelFontDescriptor = cell.scoreLabel.font.fontDescriptor ;
 	UIFont *boldFont = [UIFont fontWithDescriptor:[labelFontDescriptor fontDescriptorWithSymbolicTraits:UIFontDescriptorTraitBold] size:0] ;
-
 	NSAttributedString *scoreAttrString = [[NSAttributedString alloc] initWithString:post.score.stringValue attributes:@{NSFontAttributeName:boldFont}] ;
 	cell.scoreLabel.attributedText = scoreAttrString ;
-	cell.commentsLabel.text = [NSString stringWithFormat:@"%@" , post.num_comments] ;
+	
+//	cell.backgroundImageView.layer.borderColor = [UIColor yellowColor].CGColor ;
+//	cell.backgroundImageView.layer.borderWidth = 1 ;
+	
+	// Background image
+	cell.backgroundImageView.image = nil ;
+	NSURL *thumbnailURL = [NSURL URLWithString:post.thumbnail] ;
+	if( thumbnailURL )
+		{
+		[[AsyncImageFetcher sharedImageFetcher] fetchImageAtURL:thumbnailURL cache:YES andPerform:^(UIImage *image, BOOL usingCached)
+			{
+			if( image )
+				{
+				SNOOPostTableViewCell *cellOnWhichToSetImage = cell ;
+				if( !usingCached) // if not using cached then this cell may no longer be the target cell, so we ask the tableview for the new cell at indexPath. If we are using cached, we don't ask the tableview for it since it hasn't had a chance to show up on the screen yet so -cellForRowAtIndexPath: will return nil.
+					{
+					// This shouldn't be dangerous to do because if usingCached is YES, the cell we are asking for here should already have been created and put on the screen
+					cellOnWhichToSetImage = (SNOOPostTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath] ;
+					}
+				if( cellOnWhichToSetImage )
+					{
+					cellOnWhichToSetImage.backgroundImageView.image = image ;
+					[cellOnWhichToSetImage.backgroundImageView invalidateIntrinsicContentSize] ;
+					}
+				} // if image
+			}] ;
+		} // if thumbnailURL
 	
 //	cell.postLabel.layer.borderColor = [UIColor yellowColor].CGColor ;
 //	cell.postLabel.layer.borderWidth = 1 ;
@@ -229,8 +271,7 @@
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 	{
 	SNOOPost *post = [self.fetchedResultsController objectAtIndexPath:indexPath] ;
-
-	return [SNOOPostTableViewCell heightWithPostText:post.title] ;
+	return [SNOOPostTableViewCell heightWithPostText:post.title hasImage:post.thumbnail.length > 0] ;
 	}
 
 - (void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath

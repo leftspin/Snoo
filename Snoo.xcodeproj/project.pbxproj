@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27043A5119453F9500183147 /* AsyncImageFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 27043A5019453F9500183147 /* AsyncImageFetcher.m */; };
+		27043A551945439900183147 /* UIImageView+ImageFitting.m in Sources */ = {isa = PBXBuildFile; fileRef = 27043A541945439900183147 /* UIImageView+ImageFitting.m */; };
+		27043A581945444000183147 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 27043A571945444000183147 /* UIImage+ImageEffects.m */; };
 		2780F680194526E6005C7A23 /* SNOOSelfTextController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2780F67F194526E6005C7A23 /* SNOOSelfTextController.m */; };
 		2788652519411CBF007BBC37 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2788652419411CBF007BBC37 /* Foundation.framework */; };
 		2788652719411CBF007BBC37 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2788652619411CBF007BBC37 /* CoreGraphics.framework */; };
@@ -62,6 +65,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		27043A4F19453F9500183147 /* AsyncImageFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageFetcher.h; sourceTree = "<group>"; };
+		27043A5019453F9500183147 /* AsyncImageFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageFetcher.m; sourceTree = "<group>"; };
+		27043A531945439900183147 /* UIImageView+ImageFitting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+ImageFitting.h"; sourceTree = "<group>"; };
+		27043A541945439900183147 /* UIImageView+ImageFitting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+ImageFitting.m"; sourceTree = "<group>"; };
+		27043A561945444000183147 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		27043A571945444000183147 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		2780F67E194526E6005C7A23 /* SNOOSelfTextController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNOOSelfTextController.h; sourceTree = "<group>"; };
 		2780F67F194526E6005C7A23 /* SNOOSelfTextController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNOOSelfTextController.m; sourceTree = "<group>"; };
 		2788652119411CBF007BBC37 /* Snoo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snoo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,6 +170,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		27043A5219453F9B00183147 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				27043A4F19453F9500183147 /* AsyncImageFetcher.h */,
+				27043A5019453F9500183147 /* AsyncImageFetcher.m */,
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
 		2780F67D194526B8005C7A23 /* Self Text Display */ = {
 			isa = PBXGroup;
 			children = (
@@ -238,6 +256,7 @@
 		2788655919412316007BBC37 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				27043A5219453F9B00183147 /* Utility */,
 				2788656219412443007BBC37 /* Convenience Categories */,
 				2788652E19411CBF007BBC37 /* Snoo-Info.plist */,
 				2788652F19411CBF007BBC37 /* InfoPlist.strings */,
@@ -289,6 +308,10 @@
 				278DB60F1942974E00E79CCC /* NSDate+Conversions.m */,
 				2790B752194500A0000A903E /* NSString+Prettify.h */,
 				2790B753194500A0000A903E /* NSString+Prettify.m */,
+				27043A531945439900183147 /* UIImageView+ImageFitting.h */,
+				27043A541945439900183147 /* UIImageView+ImageFitting.m */,
+				27043A561945444000183147 /* UIImage+ImageEffects.h */,
+				27043A571945444000183147 /* UIImage+ImageEffects.m */,
 			);
 			name = "Convenience Categories";
 			sourceTree = "<group>";
@@ -532,6 +555,8 @@
 				2780F680194526E6005C7A23 /* SNOOSelfTextController.m in Sources */,
 				278E70A41944EA4B00D14D1A /* SORelativeDateTransformer.m in Sources */,
 				27D2632F1942493C00DD0ADC /* NSDictionary+Recognize.m in Sources */,
+				27043A581945444000183147 /* UIImage+ImageEffects.m in Sources */,
+				27043A5119453F9500183147 /* AsyncImageFetcher.m in Sources */,
 				2788653719411CBF007BBC37 /* SNOOAppDelegate.m in Sources */,
 				27E282BD194536B700C05BF3 /* _SNOOPost.m in Sources */,
 				2788656819412A86007BBC37 /* SNOORedditCommand.m in Sources */,
@@ -540,6 +565,7 @@
 				2790B754194500A0000A903E /* NSString+Prettify.m in Sources */,
 				27886570194132C3007BBC37 /* SNOORedditCommandFetchFrontPage.m in Sources */,
 				27886577194186A5007BBC37 /* NSURL+Queries.m in Sources */,
+				27043A551945439900183147 /* UIImageView+ImageFitting.m in Sources */,
 				278DB6101942974E00E79CCC /* NSDate+Conversions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

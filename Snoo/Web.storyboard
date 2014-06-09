@@ -58,7 +58,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Mm4-fQ-FXA">
-                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="done" id="jjh-bZ-KP1">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="jjh-bZ-KP1">
                             <connections>
                                 <action selector="doneTapped:" destination="yzz-a8-ClZ" id="L7l-YE-CWm"/>
                             </connections>

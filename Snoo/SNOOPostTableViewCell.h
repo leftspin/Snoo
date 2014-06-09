@@ -16,8 +16,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *postTypeIndicator;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *commentsLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 
 + (instancetype) exemplar ;
-+ (CGFloat) heightWithPostText: (NSString *) text ;
++ (CGFloat) heightWithPostText: (NSString *) text hasImage: (BOOL) hasImage ;
 
 @end

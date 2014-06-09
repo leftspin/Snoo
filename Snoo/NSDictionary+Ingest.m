@@ -52,6 +52,8 @@
 		
 	post.kind = SAFESTRING(self[@"kind"]) ;
 	post.title = [SAFESTRING([self valueForKeyPath:@"data.title"]) prettyfy] ;
+	if( post.title.length == 0 )
+		post.title = @"[Unspecified Title]" ;
 	post.is_self = [self valueForKeyPath:@"data.is_self"] ;
 	post.redditID = SAFESTRING([self valueForKeyPath:@"data.id"]) ;
 	post.selftext = SAFESTRING([self valueForKeyPath:@"data.selftext"]) ;
@@ -59,7 +61,8 @@
 	post.created_date = [NSDate dateFromUTCEpochTime:[self valueForKeyPath:@"data.created_utc"]] ;
 	post.score = [self valueForKeyPath:@"data.score"] ;
 	post.num_comments = [self valueForKeyPath:@"data.num_comments"] ;
-
+	post.thumbnail = SAFESTRING([self valueForKeyPath:@"data.thumbnail"]) ;
+	
 	return YES ;
 	}
 @end

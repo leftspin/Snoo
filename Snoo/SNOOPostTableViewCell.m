@@ -13,8 +13,6 @@
 
 @interface SNOOPostTableViewCell ()
 @property (weak, nonatomic) IBOutlet UIView *containerView;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *postLabelTopToSuperviewConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *postLabelBottomToSuperviewContraint;
 @property (weak, nonatomic) IBOutlet UIImageView *commentIcon;
 
 @end
@@ -53,7 +51,7 @@
 
 #pragma mark - Metrics
 
-+ (CGFloat) heightWithPostText: (NSString *) text
++ (CGFloat) heightWithPostText: (NSString *) text hasImage: (BOOL) hasImage
 	{
 	SNOOPostTableViewCell *exemplar = [SNOOPostTableViewCell exemplar] ;
 	
@@ -62,7 +60,10 @@
 	[exemplar.postLabel layoutIfNeeded] ;
 	[exemplar.containerView layoutIfNeeded] ;
 	
-	return MIN(exemplar.postLabel.frame.size.height + CONTENT_PADDING * 2.0, exemplar.frame.size.width * (3.0/4.0)) ;
+#define HEIGHT_FRACTION (3.0/4.0)
+#define MAX_IMAGE_HEIGHT_WITH_GUTTER (80.0)
+	
+	return MIN(exemplar.postLabel.frame.size.height + CONTENT_PADDING * 2.0, exemplar.frame.size.width * HEIGHT_FRACTION) + (hasImage ? MAX_IMAGE_HEIGHT_WITH_GUTTER : 0) ;
 	}
 
 @end

@@ -18,5 +18,8 @@
 	#import "SNOOAppDelegate.h"
 
 #define SAFESTRING(x) ((x && ((NSNull *)x)!=[NSNull null] && [x isKindOfClass:[NSString class]]) ? (NSString*)x : @"")
+#define CGRECTMAKEF(x,y,w,h) CGRectMake(floorf(x), floorf(y), floorf(w), floorf(h))
+#define CGPOINTMAKEF(x,y) CGPointMake( floorf(x), floorf(y) )
+#define CGSIZEMAKEF(w,h) CGSizeMake( floorf(w), floorf(h) )
 
 #endif

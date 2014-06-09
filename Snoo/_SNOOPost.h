@@ -23,5 +23,6 @@
 @property (nonatomic, retain) NSString * url;
 @property (nonatomic, retain) NSNumber * score;
 @property (nonatomic, retain) NSNumber * num_comments;
+@property (nonatomic, retain) NSString * thumbnail;
 
 @end
