@@ -12,7 +12,7 @@
 #import "SNOORedditCommandFetchFrontPage.h"
 #import "SNOOPagedAccess.h"
 #import "SNOOPostTableViewCell.h"
-#import "SNOOPost.h"
+#import "_SNOOPost.h"
 #import "SNOOPagedAccess.h"
 #import "NSDate(FriendlyDate).h"
 #import "SNOOSelfTextController.h"
@@ -164,11 +164,8 @@
 
 - (void) configureCell: (SNOOPostTableViewCell *) cell atIndexPath: (NSIndexPath *) indexPath
 	{
-    SNOOPost *post = [self.fetchedResultsController objectAtIndexPath:indexPath] ;
+    _SNOOPost *post = [self.fetchedResultsController objectAtIndexPath:indexPath] ;
 
-//	cell.postLabel.layer.borderWidth = 1 ;
-//	cell.postLabel.layer.borderColor = [UIColor yellowColor].CGColor ;
-	
 	// Easy stuff
 	cell.postLabel.text = post.title ;
 	cell.dateLabel.text = [post.created_date friendlyDateWithEndDate:nil] ;
@@ -186,9 +183,6 @@
 	UIFont *boldFont = [UIFont fontWithDescriptor:[labelFontDescriptor fontDescriptorWithSymbolicTraits:UIFontDescriptorTraitBold] size:0] ;
 	NSAttributedString *scoreAttrString = [[NSAttributedString alloc] initWithString:post.score.stringValue attributes:@{NSFontAttributeName:boldFont}] ;
 	cell.scoreLabel.attributedText = scoreAttrString ;
-	
-//	cell.backgroundImageView.layer.borderColor = [UIColor yellowColor].CGColor ;
-//	cell.backgroundImageView.layer.borderWidth = 1 ;
 	
 	// Background image
 	cell.backgroundImageView.image = nil ;
@@ -270,8 +264,11 @@
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 	{
-	SNOOPost *post = [self.fetchedResultsController objectAtIndexPath:indexPath] ;
-	return [SNOOPostTableViewCell heightWithPostText:post.title hasImage:post.thumbnail.length > 0] ;
+	_SNOOPost *post = [self.fetchedResultsController objectAtIndexPath:indexPath] ;
+
+	CGFloat height = [SNOOPostTableViewCell heightWithPostText:post.title hasImage:post.thumbnail.length > 0 ] ;
+	
+	return height ;
 	}
 
 - (void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -283,7 +280,7 @@
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 	{
-	SNOOPost *post = [self.fetchedResultsController objectAtIndexPath:indexPath] ;
+	_SNOOPost *post = [self.fetchedResultsController objectAtIndexPath:indexPath] ;
 	
 	if( post.is_self.boolValue && post.selftext.length > 0)
 		{

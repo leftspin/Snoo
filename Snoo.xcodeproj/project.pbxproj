@@ -37,7 +37,6 @@
 		278DB5FA194270DC00E79CCC /* NSArray+Ingest.m in Sources */ = {isa = PBXBuildFile; fileRef = 278DB5F9194270DC00E79CCC /* NSArray+Ingest.m */; };
 		278DB5FD1942729600E79CCC /* NSDictionary+Ingest.m in Sources */ = {isa = PBXBuildFile; fileRef = 278DB5FC1942729600E79CCC /* NSDictionary+Ingest.m */; };
 		278DB6001942800600E79CCC /* NSManagedObjectContext+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 278DB5FF1942800600E79CCC /* NSManagedObjectContext+Convenience.m */; };
-		278DB607194286DB00E79CCC /* SNOOPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 278DB606194286DB00E79CCC /* SNOOPost.m */; };
 		278DB6101942974E00E79CCC /* NSDate+Conversions.m in Sources */ = {isa = PBXBuildFile; fileRef = 278DB60F1942974E00E79CCC /* NSDate+Conversions.m */; };
 		278DB614194298E000E79CCC /* SNOOPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 278DB612194298E000E79CCC /* SNOOPostTableViewCell.m */; };
 		278DB615194298E000E79CCC /* SNOOPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 278DB613194298E000E79CCC /* SNOOPostTableViewCell.xib */; };
@@ -114,8 +113,6 @@
 		278DB5FC1942729600E79CCC /* NSDictionary+Ingest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Ingest.m"; sourceTree = "<group>"; };
 		278DB5FE1942800500E79CCC /* NSManagedObjectContext+Convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+Convenience.h"; sourceTree = "<group>"; };
 		278DB5FF1942800600E79CCC /* NSManagedObjectContext+Convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+Convenience.m"; sourceTree = "<group>"; };
-		278DB605194286DB00E79CCC /* SNOOPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNOOPost.h; sourceTree = "<group>"; };
-		278DB606194286DB00E79CCC /* SNOOPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNOOPost.m; sourceTree = "<group>"; };
 		278DB60E1942974E00E79CCC /* NSDate+Conversions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Conversions.h"; sourceTree = "<group>"; };
 		278DB60F1942974E00E79CCC /* NSDate+Conversions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Conversions.m"; sourceTree = "<group>"; };
 		278DB611194298E000E79CCC /* SNOOPostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNOOPostTableViewCell.h; sourceTree = "<group>"; };
@@ -273,8 +270,6 @@
 			isa = PBXGroup;
 			children = (
 				2788653819411CBF007BBC37 /* Snoo.xcdatamodeld */,
-				278DB605194286DB00E79CCC /* SNOOPost.h */,
-				278DB606194286DB00E79CCC /* SNOOPost.m */,
 				27E282BB194536B700C05BF3 /* _SNOOPost.h */,
 				27E282BC194536B700C05BF3 /* _SNOOPost.m */,
 			);
@@ -548,7 +543,6 @@
 				27D26336194255E700DD0ADC /* NSDictionary+Extract.m in Sources */,
 				2788653319411CBF007BBC37 /* main.m in Sources */,
 				2788653A19411CBF007BBC37 /* Snoo.xcdatamodeld in Sources */,
-				278DB607194286DB00E79CCC /* SNOOPost.m in Sources */,
 				2788657B19418B94007BBC37 /* SNOOFrontPageListingController.m in Sources */,
 				27886565194124D4007BBC37 /* UIResponder+PerformSelector.m in Sources */,
 				2788657419416BED007BBC37 /* SNOOPagedAccessByURLParameter.m in Sources */,

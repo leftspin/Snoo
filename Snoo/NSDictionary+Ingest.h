@@ -10,7 +10,7 @@
 @import Foundation ;
 @import CoreData ;
 
-@class SNOOPost ;
+@class _SNOOPost ;
 
 #define DICTIONARY_INGEST_ERROR_DOMAIN @"DICTIONARY_INGEST_ERROR_DOMAIN"
 typedef enum : NSUInteger
@@ -25,5 +25,5 @@ typedef enum : NSUInteger
 - (BOOL) ingestAsListingIntoUIContext: (NSString *) uiContext usingContext: (NSManagedObjectContext *) moc error: (NSError **) pointerToError ;
 
 // Maps a Listing object into a SNOOPost. Returns YES if successful. If not successful, returns NO and sets pointerToError. pointerToError is undefined if successful.
-- (BOOL) mapAsListingObjectIntoPost: (SNOOPost *) post error: (NSError **) pointerToError ;
+- (BOOL) mapAsListingObjectIntoPost: (_SNOOPost *) post error: (NSError **) pointerToError ;
 @end

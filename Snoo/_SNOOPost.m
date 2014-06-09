@@ -23,4 +23,5 @@
 @dynamic score;
 @dynamic num_comments;
 @dynamic thumbnail ;
+
 @end

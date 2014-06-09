@@ -9,7 +9,7 @@
 #import "NSArray+Ingest.h"
 #import "NSDictionary+Recognize.h"
 #import "NSManagedObjectContext+Convenience.h"
-#import "SNOOPost.h"
+#import "_SNOOPost.h"
 #import "NSDictionary+Ingest.h"
 
 @implementation NSArray (Ingest)
@@ -50,7 +50,7 @@
 				}
 			else
 				{
-				SNOOPost *post = [NSEntityDescription insertNewObjectForEntityForName:SNOO_POST_ENTITY_NAME inManagedObjectContext:moc] ;
+				_SNOOPost *post = [NSEntityDescription insertNewObjectForEntityForName:SNOO_POST_ENTITY_NAME inManagedObjectContext:moc] ;
 				if( !post )
 					{
 					NSLog(@"Could not create a new SNOOPost") ;

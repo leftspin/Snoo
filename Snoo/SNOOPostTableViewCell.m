@@ -8,8 +8,7 @@
 
 #import "SNOOPostTableViewCell.h"
 
-#define CONTENT_PADDING (20)
-
+#define CONTENT_PADDING (60)
 
 @interface SNOOPostTableViewCell ()
 @property (weak, nonatomic) IBOutlet UIView *containerView;
@@ -56,14 +55,15 @@
 	SNOOPostTableViewCell *exemplar = [SNOOPostTableViewCell exemplar] ;
 	
 	exemplar.postLabel.text = text ;
-	[exemplar.postLabel invalidateIntrinsicContentSize] ;
-	[exemplar.postLabel layoutIfNeeded] ;
-	[exemplar.containerView layoutIfNeeded] ;
+//	[exemplar.postLabel invalidateIntrinsicContentSize] ;
+//	[exemplar.postLabel layoutIfNeeded] ;
+//	[exemplar.containerView layoutIfNeeded] ;
+	CGSize size = [exemplar.postLabel sizeThatFits:CGSizeMake(exemplar.postLabel.frame.size.width, CGFLOAT_MAX)] ;
 	
 #define HEIGHT_FRACTION (3.0/4.0)
 #define MAX_IMAGE_HEIGHT_WITH_GUTTER (80.0)
 	
-	return MIN(exemplar.postLabel.frame.size.height + CONTENT_PADDING * 2.0, exemplar.frame.size.width * HEIGHT_FRACTION) + (hasImage ? MAX_IMAGE_HEIGHT_WITH_GUTTER : 0) ;
+	return MIN(size.height + CONTENT_PADDING, exemplar.frame.size.width * HEIGHT_FRACTION) + (hasImage ? MAX_IMAGE_HEIGHT_WITH_GUTTER : 0) ;
 	}
 
 @end

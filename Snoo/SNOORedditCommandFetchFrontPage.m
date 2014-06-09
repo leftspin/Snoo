@@ -11,7 +11,7 @@
 #import "NSDictionary+Extract.h"
 #import "NSDictionary+Ingest.h"
 #import "SNOOFrontPageListingController.h"
-#import "SNOOPost.h"
+#import "_SNOOPost.h"
 #import "NSManagedObjectContext+Convenience.h"
 
 @interface SNOORedditCommandFetchFrontPage ()
@@ -49,7 +49,7 @@
 		{
 		NSSet *objectsToDelete = [self.childMOC fetchObjectsForEntityName:SNOO_POST_ENTITY_NAME onlyIDs:YES withPredicate:@"ui_context == %@" , SNOO_UI_CONTEXT_FRONT_PAGE] ;
 		
-		[objectsToDelete enumerateObjectsUsingBlock:^(SNOOPost *post, BOOL *stop)
+		[objectsToDelete enumerateObjectsUsingBlock:^(_SNOOPost *post, BOOL *stop)
 			{
 			[self.childMOC deleteObject:post] ;
 			}] ;

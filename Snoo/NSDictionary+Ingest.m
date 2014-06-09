@@ -10,7 +10,7 @@
 #import "NSDictionary+Extract.h"
 #import "NSArray+Ingest.h"
 #import "NSDictionary+Recognize.h"
-#import "SNOOPost.h"
+#import "_SNOOPost.h"
 #import "NSDate+Conversions.h"
 #import "NSString+Prettify.h"
 
@@ -37,7 +37,7 @@
 	return YES ;
 	}
 
-- (BOOL) mapAsListingObjectIntoPost: (SNOOPost *) post error: (NSError **) pointerToError
+- (BOOL) mapAsListingObjectIntoPost: (_SNOOPost *) post error: (NSError **) pointerToError
 	{
 	NSParameterAssert(post) ;
 	NSParameterAssert(pointerToError) ;
@@ -57,11 +57,16 @@
 	post.is_self = [self valueForKeyPath:@"data.is_self"] ;
 	post.redditID = SAFESTRING([self valueForKeyPath:@"data.id"]) ;
 	post.selftext = SAFESTRING([self valueForKeyPath:@"data.selftext"]) ;
-	post.url = SAFESTRING([self valueForKeyPath:@"data.url"]) ;
+
+	NSString *linkURLString = SAFESTRING([self valueForKeyPath:@"data.url"]) ;
+	post.url = [linkURLString rangeOfString:@"http"].location == 0 ? linkURLString : nil ;
+	
 	post.created_date = [NSDate dateFromUTCEpochTime:[self valueForKeyPath:@"data.created_utc"]] ;
 	post.score = [self valueForKeyPath:@"data.score"] ;
 	post.num_comments = [self valueForKeyPath:@"data.num_comments"] ;
-	post.thumbnail = SAFESTRING([self valueForKeyPath:@"data.thumbnail"]) ;
+
+	NSString *thumbnailURLString = SAFESTRING([self valueForKeyPath:@"data.thumbnail"]) ;
+	post.thumbnail = [thumbnailURLString rangeOfString:@"http"].location == 0 ? thumbnailURLString : nil ;
 	
 	return YES ;
 	}

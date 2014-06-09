@@ -22,4 +22,6 @@
 #define CGPOINTMAKEF(x,y) CGPointMake( floorf(x), floorf(y) )
 #define CGSIZEMAKEF(w,h) CGSizeMake( floorf(w), floorf(h) )
 
+#define SNOO_POST_ENTITY_NAME @"SNOOPost"
+
 #endif
