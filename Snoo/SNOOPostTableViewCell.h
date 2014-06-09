@@ -13,6 +13,7 @@
 @interface SNOOPostTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *postLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *postTypeIndicator;
 
 + (instancetype) exemplar ;
 + (CGFloat) heightWithPostText: (NSString *) text ;

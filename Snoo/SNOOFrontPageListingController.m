@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 ivm. All rights reserved.
 //
 
+@import QuartzCore ;
+
 #import "SNOOFrontPageListingController.h"
 #import "SNOORedditCommandFetchFrontPage.h"
 #import "SNOOPagedAccess.h"
@@ -13,7 +15,8 @@
 #import "SNOOPost.h"
 #import "SNOOPagedAccess.h"
 #import "NSDate(FriendlyDate).h"
-@import QuartzCore ;
+#import "SNOOSelfTextController.h"
+#import "SNOOWebBrowserController.h"
 
 #define SNOO_UI_CONTEXT_FRONT_PAGE_PAGER_DEFAULTS_KEY @"SNOO_UI_CONTEXT_FRONT_PAGE_PAGER_DEFAULTS_KEY"
 
@@ -87,12 +90,6 @@
 	self.activityIndicator.frame = CGRectMake((self.loadMoreFooterView.bounds.size.width - self.activityIndicator.frame.size.width)/2.0, (self.loadMoreFooterView.bounds.size.height - self.activityIndicator.frame.size.height)/2.0, self.activityIndicator.frame.size.width, self.activityIndicator.frame.size.height) ;
 	[self.loadMoreFooterView addSubview:self.activityIndicator] ;
 	
-	// Auto inset adjustment is off in the nib, so we calculate it manually here
-	CGFloat statusHeight = [UIApplication sharedApplication].statusBarFrame.size.height ;
-	CGFloat navigationHeight = self.navigationController.navigationBar.frame.size.height ;
-	_headerHeight = statusHeight + navigationHeight ;
-	self.tableView.contentInset = UIEdgeInsetsMake(_headerHeight, 0, 0, 0) ;
-
 	// Top spacer for table view
 	_topSpacer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, 20)] ;
 	_topSpacer.backgroundColor = [SNOOPostTableViewCell exemplar].backgroundColor ;
@@ -138,6 +135,13 @@
 	// If there aren't any objects, load some
 	if( self.fetchedResultsController.fetchedObjects.count == 0 )
 		[self.fetchCommand perform] ;
+	
+	// Auto inset adjustment is off in the nib, so we calculate it manually here
+	CGFloat statusHeight = [UIApplication sharedApplication].statusBarFrame.size.height ;
+	CGFloat navigationHeight = self.navigationController.navigationBar.frame.size.height ;
+	_headerHeight = statusHeight + navigationHeight ;
+	self.tableView.contentInset = UIEdgeInsetsMake(_headerHeight, 0, 0, 0) ;
+	self.tableView.contentOffset = CGPointMake(0, -_headerHeight) ;
 	}
 
 #pragma mark - UIViewController
@@ -154,6 +158,13 @@
     SNOOPost *post = [self.fetchedResultsController objectAtIndexPath:indexPath] ;
 	cell.postLabel.text = post.title ;
 	cell.dateLabel.text = [post.created_date friendlyDateWithEndDate:nil] ;
+	
+	cell.postTypeIndicator.text = nil ;
+	if( post.is_self.boolValue && post.selftext.length > 0 )
+		cell.postTypeIndicator.text = @"(read more)" ;
+	else if( post.url.length > 0 )
+		cell.postTypeIndicator.text = @"(link)" ;
+	
 //	cell.postLabel.layer.borderColor = [UIColor yellowColor].CGColor ;
 //	cell.postLabel.layer.borderWidth = 1 ;
 	}
@@ -220,6 +231,41 @@
 	// Support auto load more
 	if( indexPath.row == self.fetchedResultsController.fetchedObjects.count-1 && self.fetchCommand.pager.hasNextPage )
 		[self nextPageTapped:self.navigationItem.rightBarButtonItem] ; // lies
+	}
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+	{
+	SNOOPost *post = [self.fetchedResultsController objectAtIndexPath:indexPath] ;
+	
+	if( post.is_self.boolValue && post.selftext.length > 0)
+		{
+		SNOOSelfTextController *stc = [self.storyboard instantiateViewControllerWithIdentifier:SNOO_SELF_TEXT_CONTROLLER_ID] ;
+		stc.initialText = post.selftext ;
+		[self.navigationController pushViewController:stc animated:YES] ;
+		}
+	else if( post.url.length > 0 )
+		{
+		UIStoryboard *webStoryboard = [UIStoryboard storyboardWithName:@"Web" bundle:nil] ;
+		SNOOWebBrowserController *webController = [webStoryboard instantiateInitialViewController] ;
+		NSURL *url = [NSURL URLWithString:post.url] ;
+		if( !url )
+			{
+			[[[UIAlertView alloc] initWithTitle:@"Could not load web page" message:@"The URL is invalid" delegate:nil cancelButtonTitle:@"Darn" otherButtonTitles:nil] show] ;
+			[self.tableView deselectRowAtIndexPath:indexPath animated:YES] ;
+			}
+		else
+			{
+			UINavigationController *navC = [[UINavigationController alloc] initWithRootViewController:webController] ;
+			[self presentViewController:navC animated:YES completion:^
+				{
+				[webController.webView loadRequest:[NSURLRequest requestWithURL:url]] ;
+				}] ;
+			}
+		}
+	else
+		{
+		[self.tableView deselectRowAtIndexPath:indexPath animated:YES] ;
+		}
 	}
 
 #pragma mark - NSFetchedResultsController

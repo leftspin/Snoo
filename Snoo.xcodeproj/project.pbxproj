@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2780F680194526E6005C7A23 /* SNOOSelfTextController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2780F67F194526E6005C7A23 /* SNOOSelfTextController.m */; };
 		2788652519411CBF007BBC37 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2788652419411CBF007BBC37 /* Foundation.framework */; };
 		2788652719411CBF007BBC37 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2788652619411CBF007BBC37 /* CoreGraphics.framework */; };
 		2788652919411CBF007BBC37 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2788652819411CBF007BBC37 /* UIKit.framework */; };
@@ -42,6 +43,8 @@
 		278E70A41944EA4B00D14D1A /* SORelativeDateTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 278E70A01944EA4B00D14D1A /* SORelativeDateTransformer.m */; };
 		278E70A51944EA4B00D14D1A /* NSDate(FriendlyDate).m in Sources */ = {isa = PBXBuildFile; fileRef = 278E70A21944EA4B00D14D1A /* NSDate(FriendlyDate).m */; };
 		2790B754194500A0000A903E /* NSString+Prettify.m in Sources */ = {isa = PBXBuildFile; fileRef = 2790B753194500A0000A903E /* NSString+Prettify.m */; };
+		279400CD19452EBC0086829B /* Web.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 279400CA19452EBC0086829B /* Web.storyboard */; };
+		279400CE19452EBC0086829B /* SNOOWebBrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 279400CC19452EBC0086829B /* SNOOWebBrowserController.m */; };
 		27D2632F1942493C00DD0ADC /* NSDictionary+Recognize.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D2632E1942493C00DD0ADC /* NSDictionary+Recognize.m */; };
 		27D2633319424F0700DD0ADC /* SNOORedditConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D2633219424F0700DD0ADC /* SNOORedditConstants.m */; };
 		27D26336194255E700DD0ADC /* NSDictionary+Extract.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D26335194255E700DD0ADC /* NSDictionary+Extract.m */; };
@@ -59,6 +62,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2780F67E194526E6005C7A23 /* SNOOSelfTextController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNOOSelfTextController.h; sourceTree = "<group>"; };
+		2780F67F194526E6005C7A23 /* SNOOSelfTextController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNOOSelfTextController.m; sourceTree = "<group>"; };
 		2788652119411CBF007BBC37 /* Snoo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snoo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2788652419411CBF007BBC37 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2788652619411CBF007BBC37 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -116,6 +121,9 @@
 		278E70A21944EA4B00D14D1A /* NSDate(FriendlyDate).m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate(FriendlyDate).m"; sourceTree = "<group>"; };
 		2790B752194500A0000A903E /* NSString+Prettify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Prettify.h"; sourceTree = "<group>"; };
 		2790B753194500A0000A903E /* NSString+Prettify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Prettify.m"; sourceTree = "<group>"; };
+		279400CA19452EBC0086829B /* Web.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Web.storyboard; sourceTree = "<group>"; };
+		279400CB19452EBC0086829B /* SNOOWebBrowserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNOOWebBrowserController.h; sourceTree = "<group>"; };
+		279400CC19452EBC0086829B /* SNOOWebBrowserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNOOWebBrowserController.m; sourceTree = "<group>"; };
 		27D2632D1942493C00DD0ADC /* NSDictionary+Recognize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Recognize.h"; sourceTree = "<group>"; };
 		27D2632E1942493C00DD0ADC /* NSDictionary+Recognize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Recognize.m"; sourceTree = "<group>"; };
 		27D2633119424F0700DD0ADC /* SNOORedditConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNOORedditConstants.h; sourceTree = "<group>"; };
@@ -153,6 +161,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2780F67D194526B8005C7A23 /* Self Text Display */ = {
+			isa = PBXGroup;
+			children = (
+				2780F67E194526E6005C7A23 /* SNOOSelfTextController.h */,
+				2780F67F194526E6005C7A23 /* SNOOSelfTextController.m */,
+			);
+			name = "Self Text Display";
+			sourceTree = "<group>";
+		};
 		2788651819411CBF007BBC37 = {
 			isa = PBXGroup;
 			children = (
@@ -189,8 +206,10 @@
 		2788652C19411CBF007BBC37 /* Snoo */ = {
 			isa = PBXGroup;
 			children = (
+				279400C919452EAC0086829B /* Web Viewer */,
 				2788656919412BBE007BBC37 /* View */,
 				2788655A1941232D007BBC37 /* Model */,
+				2780F67D194526B8005C7A23 /* Self Text Display */,
 				2788657819418B70007BBC37 /* Front Page Listing */,
 				2788656C19412F7B007BBC37 /* Service */,
 				2788655919412316007BBC37 /* Application */,
@@ -331,6 +350,16 @@
 			name = "Friendly Date";
 			sourceTree = "<group>";
 		};
+		279400C919452EAC0086829B /* Web Viewer */ = {
+			isa = PBXGroup;
+			children = (
+				279400CA19452EBC0086829B /* Web.storyboard */,
+				279400CB19452EBC0086829B /* SNOOWebBrowserController.h */,
+				279400CC19452EBC0086829B /* SNOOWebBrowserController.m */,
+			);
+			name = "Web Viewer";
+			sourceTree = "<group>";
+		};
 		27EEFE3F1944E5230058AD49 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -435,6 +464,7 @@
 				278DB615194298E000E79CCC /* SNOOPostTableViewCell.xib in Resources */,
 				278E70A31944EA4B00D14D1A /* SORelativeDateTransformer.bundle in Resources */,
 				2788653C19411CBF007BBC37 /* Images.xcassets in Resources */,
+				279400CD19452EBC0086829B /* Web.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,6 +518,7 @@
 			files = (
 				278DB5FD1942729600E79CCC /* NSDictionary+Ingest.m in Sources */,
 				278DB6001942800600E79CCC /* NSManagedObjectContext+Convenience.m in Sources */,
+				279400CE19452EBC0086829B /* SNOOWebBrowserController.m in Sources */,
 				278DB614194298E000E79CCC /* SNOOPostTableViewCell.m in Sources */,
 				278DB5FA194270DC00E79CCC /* NSArray+Ingest.m in Sources */,
 				278E70A51944EA4B00D14D1A /* NSDate(FriendlyDate).m in Sources */,
@@ -499,6 +530,7 @@
 				2788657B19418B94007BBC37 /* SNOOFrontPageListingController.m in Sources */,
 				27886565194124D4007BBC37 /* UIResponder+PerformSelector.m in Sources */,
 				2788657419416BED007BBC37 /* SNOOPagedAccessByURLParameter.m in Sources */,
+				2780F680194526E6005C7A23 /* SNOOSelfTextController.m in Sources */,
 				278E70A41944EA4B00D14D1A /* SORelativeDateTransformer.m in Sources */,
 				27D2632F1942493C00DD0ADC /* NSDictionary+Recognize.m in Sources */,
 				2788653719411CBF007BBC37 /* SNOOAppDelegate.m in Sources */,

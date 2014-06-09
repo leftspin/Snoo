@@ -4,11 +4,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Front Page Listing Controller - Snoo-->
+        <!--Front Page Listing Controller - Front Page-->
         <scene sceneID="Vmh-RO-T7u">
             <objects>
                 <tableViewController restorationIdentifier="SNOO_UI_CONTEXT_FRONT_PAGE" automaticallyAdjustsScrollViewInsets="NO" id="eUd-Sf-iIr" customClass="SNOOFrontPageListingController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" restorationIdentifier="SNOO_UI_CONTEXT_FRONT_PAGE_TABLEVIEW" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="fgH-W5-23s">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" restorationIdentifier="SNOO_UI_CONTEXT_FRONT_PAGE_TABLEVIEW" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="fgH-W5-23s">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.65167480707168579" green="0.83996438980102539" blue="0.93063098192214966" alpha="1" colorSpace="calibratedRGB"/>
@@ -17,7 +17,7 @@
                             <outlet property="delegate" destination="eUd-Sf-iIr" id="Yzg-lk-hxi"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Snoo" id="Hs2-S2-SJ8">
+                    <navigationItem key="navigationItem" title="Front Page" id="Hs2-S2-SJ8">
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="oTB-9Q-JKL">
                             <connections>
                                 <action selector="refreshTapped:" destination="eUd-Sf-iIr" id="Ssv-QQ-JoU"/>
@@ -31,6 +31,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fxr-4E-xLS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="820" y="245"/>
+        </scene>
+        <!--Self Text Controller-->
+        <scene sceneID="Jgg-os-Htm">
+            <objects>
+                <viewController storyboardIdentifier="SNOO_SELF_TEXT_CONTROLLER_ID" automaticallyAdjustsScrollViewInsets="NO" id="L7d-YJ-eMy" customClass="SNOOSelfTextController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KzR-wM-1Wx"/>
+                        <viewControllerLayoutGuide type="bottom" id="rPe-rE-Szh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="v7b-m9-GYP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView appearanceType="aqua" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" indicatorStyle="black" editable="NO" text="Nothing to see here" translatesAutoresizingMaskIntoConstraints="NO" id="Hb0-RB-4Ye">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.15056315064430237" green="0.15055865049362183" blue="0.15056121349334717" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Hb0-RB-4Ye" secondAttribute="trailing" id="Wrs-tq-Lak"/>
+                            <constraint firstItem="Hb0-RB-4Ye" firstAttribute="leading" secondItem="v7b-m9-GYP" secondAttribute="leading" id="bPi-m6-diz"/>
+                            <constraint firstAttribute="bottom" secondItem="Hb0-RB-4Ye" secondAttribute="bottom" id="xsL-HO-gzT"/>
+                            <constraint firstItem="Hb0-RB-4Ye" firstAttribute="top" secondItem="KzR-wM-1Wx" secondAttribute="bottom" id="z34-G3-tez"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="bWb-5P-CJp"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="textView" destination="Hb0-RB-4Ye" id="HiN-zd-e5C"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hDb-aL-MVv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1270" y="323"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mYU-tS-Xv7">
