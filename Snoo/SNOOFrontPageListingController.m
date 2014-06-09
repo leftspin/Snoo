@@ -89,15 +89,25 @@
 	[self.loadMoreButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted] ;
 	[self.loadMoreButton sizeToFit] ;
 	self.loadMoreFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, self.loadMoreButton.frame.size.height + LOAD_MORE_PADDING * 2.0)] ;
-	self.loadMoreButton.frame = CGRectMake((self.loadMoreFooterView.bounds.size.width - self.loadMoreButton.frame.size.width)/2.0, LOAD_MORE_PADDING, self.loadMoreButton.frame.size.width, self.loadMoreButton.frame.size.height) ;
+//	self.loadMoreButton.frame = CGRectMake((self.loadMoreFooterView.bounds.size.width - self.loadMoreButton.frame.size.width)/2.0, LOAD_MORE_PADDING, self.loadMoreButton.frame.size.width, self.loadMoreButton.frame.size.height) ;
 	[self.loadMoreFooterView addSubview:self.loadMoreButton] ;
 	[self.loadMoreButton addTarget:self action:@selector(nextPageTapped:) forControlEvents:UIControlEventTouchUpInside] ;
 	self.tableView.tableFooterView = self.loadMoreFooterView ;
 	self.activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite] ;
 	self.activityIndicator.hidesWhenStopped = YES ;
 	self.activityIndicator.color = [SNOOPostTableViewCell exemplar].backgroundColor ;
-	self.activityIndicator.frame = CGRectMake((self.loadMoreFooterView.bounds.size.width - self.activityIndicator.frame.size.width)/2.0, (self.loadMoreFooterView.bounds.size.height - self.activityIndicator.frame.size.height)/2.0, self.activityIndicator.frame.size.width, self.activityIndicator.frame.size.height) ;
+//	self.activityIndicator.frame = CGRectMake((self.loadMoreFooterView.bounds.size.width - self.activityIndicator.frame.size.width)/2.0, (self.loadMoreFooterView.bounds.size.height - self.activityIndicator.frame.size.height)/2.0, self.activityIndicator.frame.size.width, self.activityIndicator.frame.size.height) ;
 	[self.loadMoreFooterView addSubview:self.activityIndicator] ;
+	
+	self.loadMoreButton.translatesAutoresizingMaskIntoConstraints = NO ;
+	self.activityIndicator.translatesAutoresizingMaskIntoConstraints = NO ;
+	
+	[self.loadMoreFooterView addConstraints:@[
+		[NSLayoutConstraint constraintWithItem:self.loadMoreButton attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.loadMoreFooterView attribute:NSLayoutAttributeCenterX multiplier:1 constant:0] ,
+		[NSLayoutConstraint constraintWithItem:self.loadMoreButton attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.loadMoreFooterView attribute:NSLayoutAttributeCenterY multiplier:1 constant:0] ,
+		[NSLayoutConstraint constraintWithItem:self.activityIndicator attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.loadMoreFooterView attribute:NSLayoutAttributeCenterX multiplier:1 constant:0] ,
+		[NSLayoutConstraint constraintWithItem:self.activityIndicator attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.loadMoreFooterView attribute:NSLayoutAttributeCenterY multiplier:1 constant:0]
+		]] ;
 	
 	// Top spacer for table view
 	_topSpacer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, 20)] ;
@@ -152,6 +162,15 @@
 	self.tableView.contentInset = UIEdgeInsetsMake(_headerHeight, 0, 0, 0) ;
 	self.tableView.contentOffset = CGPointMake(0, -_headerHeight) ;
 	}
+
+#pragma mark - UIView events
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation duration:(NSTimeInterval)duration
+	{
+	[self.tableView beginUpdates] ;
+	[self.tableView endUpdates] ;
+	}
+
 
 #pragma mark - UIViewController
 
@@ -266,7 +285,8 @@
 	{
 	_SNOOPost *post = [self.fetchedResultsController objectAtIndexPath:indexPath] ;
 
-	CGFloat height = [SNOOPostTableViewCell heightWithPostText:post.title hasImage:post.thumbnail.length > 0 ] ;
+
+	CGFloat height = [SNOOPostTableViewCell heightWithPostText:post.title hasImage:post.thumbnail.length > 0 tableWidth:self.tableView.bounds.size.width] ;
 	
 	return height ;
 	}

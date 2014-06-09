@@ -50,15 +50,12 @@
 
 #pragma mark - Metrics
 
-+ (CGFloat) heightWithPostText: (NSString *) text hasImage: (BOOL) hasImage
++ (CGFloat) heightWithPostText: (NSString *) text hasImage: (BOOL) hasImage tableWidth: (CGFloat) tableWidth
 	{
 	SNOOPostTableViewCell *exemplar = [SNOOPostTableViewCell exemplar] ;
 	
 	exemplar.postLabel.text = text ;
-//	[exemplar.postLabel invalidateIntrinsicContentSize] ;
-//	[exemplar.postLabel layoutIfNeeded] ;
-//	[exemplar.containerView layoutIfNeeded] ;
-	CGSize size = [exemplar.postLabel sizeThatFits:CGSizeMake(exemplar.postLabel.frame.size.width, CGFLOAT_MAX)] ;
+	CGSize size = [exemplar.postLabel sizeThatFits:CGSizeMake(tableWidth, CGFLOAT_MAX)] ;
 	
 #define HEIGHT_FRACTION (3.0/4.0)
 #define MAX_IMAGE_HEIGHT_WITH_GUTTER (80.0)

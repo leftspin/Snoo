@@ -19,6 +19,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 
 + (instancetype) exemplar ;
-+ (CGFloat) heightWithPostText: (NSString *) text hasImage: (BOOL) hasImage ;
++ (CGFloat) heightWithPostText: (NSString *) text hasImage: (BOOL) hasImage tableWidth: (CGFloat) tableWidth ;
 
 @end
