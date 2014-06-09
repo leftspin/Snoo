@@ -14,6 +14,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *postLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *postTypeIndicator;
+@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (weak, nonatomic) IBOutlet UILabel *commentsLabel;
 
 + (instancetype) exemplar ;
 + (CGFloat) heightWithPostText: (NSString *) text ;

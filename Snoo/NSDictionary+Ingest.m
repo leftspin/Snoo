@@ -57,6 +57,8 @@
 	post.selftext = SAFESTRING([self valueForKeyPath:@"data.selftext"]) ;
 	post.url = SAFESTRING([self valueForKeyPath:@"data.url"]) ;
 	post.created_date = [NSDate dateFromUTCEpochTime:[self valueForKeyPath:@"data.created_utc"]] ;
+	post.score = [self valueForKeyPath:@"data.score"] ;
+	post.num_comments = [self valueForKeyPath:@"data.num_comments"] ;
 
 	return YES ;
 	}

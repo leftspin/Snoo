@@ -165,6 +165,13 @@
 	else if( post.url.length > 0 )
 		cell.postTypeIndicator.text = @"(link)" ;
 	
+	UIFontDescriptor *labelFontDescriptor = cell.scoreLabel.font.fontDescriptor ;
+	UIFont *boldFont = [UIFont fontWithDescriptor:[labelFontDescriptor fontDescriptorWithSymbolicTraits:UIFontDescriptorTraitBold] size:0] ;
+
+	NSAttributedString *scoreAttrString = [[NSAttributedString alloc] initWithString:post.score.stringValue attributes:@{NSFontAttributeName:boldFont}] ;
+	cell.scoreLabel.attributedText = scoreAttrString ;
+	cell.commentsLabel.text = [NSString stringWithFormat:@"%@" , post.num_comments] ;
+	
 //	cell.postLabel.layer.borderColor = [UIColor yellowColor].CGColor ;
 //	cell.postLabel.layer.borderWidth = 1 ;
 	}
@@ -308,6 +315,7 @@
 	self.loadMoreEnabled = NO ;
 	[self indicateLoading:YES] ;
 	[self.fetchCommand performFromFirstPage] ;
+	[self.tableView setContentOffset:CGPointMake(0, -self.tableView.contentInset.top) animated:YES] ;
 	}
 
 - (IBAction)nextPageTapped:(UIBarButtonItem *)sender

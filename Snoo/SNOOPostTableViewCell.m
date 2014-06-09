@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *postLabelTopToSuperviewConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *postLabelBottomToSuperviewContraint;
+@property (weak, nonatomic) IBOutlet UIImageView *commentIcon;
 
 @end
 
@@ -41,6 +42,13 @@
 		}) ;
 	
 	return cell ;
+	}
+
+- (void) awakeFromNib
+	{
+	[super awakeFromNib] ;
+	
+	self.commentIcon.image = [self.commentIcon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] ;
 	}
 
 #pragma mark - Metrics
